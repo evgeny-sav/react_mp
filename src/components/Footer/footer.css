@@ -1,0 +1,9 @@
+.footer {
+  height: 50px;
+  background: #414141;
+  line-height: 50px;
+  color: #fff;
+}
+.footer p {
+  margin: 0;
+}
