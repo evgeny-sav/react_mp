@@ -7,16 +7,6 @@ const app = express();
 app.use(express.static(__dirname + '/dist'));
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
-
-app.get('/api/v1/info', (req, res) => {
-  res.json({info: {
-    author: 'Yauheni Sauchanka'
-  }})
-});
-
 app.get('/api/v1/movies', (req, res) => {
   res.json([
     {

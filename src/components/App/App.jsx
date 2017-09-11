@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Infobar from '../Infobar/Infobar';
-import './app.css';
+import './app.scss';
 
 class App extends Component {
   render() {

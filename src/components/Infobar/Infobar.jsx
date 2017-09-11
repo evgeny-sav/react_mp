@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './infobar.css';
+import './infobar.scss';
 
 class Infobar extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import MovieItem from '../MovieItem/MovieItem';
-import './movie-list.css';
+import './movie-list.scss';
 
 class MovieList extends Component {
   constructor() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './header.css';
+import './header.scss';
 import SearchBar from "../SearchBar/SearchBar";
 
 class Header extends Component {
