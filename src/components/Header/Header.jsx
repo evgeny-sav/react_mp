@@ -7,9 +7,7 @@ class Header extends Component {
     return (
       <header>
         <div className="container">
-          <div className="row">
-            <SearchBar/>
-          </div>
+          <SearchBar/>
         </div>
       </header>
     );

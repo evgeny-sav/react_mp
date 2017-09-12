@@ -5,6 +5,9 @@ header {
   color: #fff;
   position: relative;
 }
+header h1 {
+  margin-top: 0;
+}
 
 header:before {
   position: absolute;
@@ -17,6 +20,10 @@ header:before {
   background: rgba(0, 0, 0, .7);
 }
 
+header .container {
+  z-index: 2;
+}
+
 header form {
-  margin-top: 15%;
+
 }

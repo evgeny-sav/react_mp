@@ -6,11 +6,7 @@ class Footer extends Component {
     return (
       <footer className="footer">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <p>Footer</p>
-            </div>
-          </div>
+          <p>Footer</p>
         </div>
       </footer>
     );

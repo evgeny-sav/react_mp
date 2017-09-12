@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.dev.js && nodemon server.js",
-    "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js && nodemon server.js",
+    "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "serve": "nodemon server.js"
   },

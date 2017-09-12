@@ -28,17 +28,7 @@ class MovieList extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          { this.state.movies.length > 0 ?  this.state.movies : (
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <h1 className="text-center text-muted">No movies found</h1>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+        { this.state.movies.length > 0 ?  this.state.movies : (<h1 className="text-center text-muted">No movies found</h1>)}
       </div>
     );
   }

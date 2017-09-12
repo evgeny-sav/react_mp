@@ -1,23 +1,22 @@
 @import '~normalize.css';
 
-:global(html, body, #root, .outer) {
+html, body, #root, .outer {
   font-family: Helvetica, sans-serif;
   height: 100%;
   margin: 0;
 }
 
-:global(.wrapper) {
+.wrapper {
   min-height: 100%;
   margin-bottom: -50px;
 }
 
-:global(.push) {
+.footer, .push {
   height: 50px;
 }
-
-:global(.footer) {
-  height: 50px;
-  background: #414141;
-  line-height: 50px;
-  color: #fff;
+.container {
+  display: block;
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
 }

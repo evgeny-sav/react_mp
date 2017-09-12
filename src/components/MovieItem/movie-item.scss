@@ -1,4 +1,6 @@
 .movie-item {
+  display: inline-block;
+  width: 290px;
   background: #eee;
   min-height: 300px;
   box-sizing: border-box;
@@ -6,6 +8,7 @@
   text-align: justify;
   padding: 20px;
   margin-bottom: 25px;
+  margin-left: 5px;
 }
 
 .movie-item h1 {
