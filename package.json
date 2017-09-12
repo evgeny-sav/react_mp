@@ -4,10 +4,10 @@
   "description": "ReactJS Mentoring Programm",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js && nodemon server.js",
-    "dev": "webpack-dev-server",
-    "build": "webpack --config webpack.config.js",
-    "server": "nodemon server.js"
+    "start": "webpack --config webpack.dev.js && nodemon server.js",
+    "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js && nodemon server.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "serve": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,9 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",

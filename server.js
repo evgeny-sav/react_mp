@@ -7,6 +7,8 @@ const app = express();
 app.use(express.static(__dirname + '/dist'));
 app.use(cors());
 
+
+// TODO: remove `&& nodemon server.js` from package.json -> 'webpack-dev-server'
 app.get('/api/v1/movies', (req, res) => {
   res.json([
     {
