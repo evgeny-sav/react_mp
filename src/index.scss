@@ -1,16 +1,23 @@
-html, body, #root, .outer {
+@import '~normalize.css';
+
+:global(html, body, #root, .outer) {
   font-family: Helvetica, sans-serif;
   height: 100%;
   margin: 0;
 }
-.wrapper {
-  min-height: 100%;
 
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
+:global(.wrapper) {
+  min-height: 100%;
   margin-bottom: -50px;
 }
 
-.push {
+:global(.push) {
   height: 50px;
+}
+
+:global(.footer) {
+  height: 50px;
+  background: #414141;
+  line-height: 50px;
+  color: #fff;
 }

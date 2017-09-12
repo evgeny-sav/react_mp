@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.resolve('dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle_[hash].js'
   },
   resolve: {
     extensions: ['.jsx', '.js'],
@@ -18,7 +18,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /(\.jsx|\.js)$/,
+        test: /(\.jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
@@ -26,7 +26,18 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: [ 'css-loader', 'sass-loader' ]
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              }
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ],
         })
       },
       {
@@ -34,14 +45,16 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {}
+            options: {
+              name: '[path][name].[ext]'
+            }
           }
         ]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin('styles_[hash].css'),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'index.html',
