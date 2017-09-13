@@ -1,0 +1,24 @@
+.movieItem {
+  display: inline-block;
+  width: 290px;
+  background: #eee;
+  min-height: 300px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 1px #ccc;
+  text-align: justify;
+  padding: 20px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+
+.movieItem h1 {
+  max-height: 100px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.movieItem p {
+  height: 190px;
+  overflow: hidden;
+}

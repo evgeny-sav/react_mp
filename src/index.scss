@@ -1,0 +1,7 @@
+@import '~normalize.css';
+
+:global(html, body, #root) {
+  font-family: Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+}

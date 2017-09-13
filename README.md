@@ -1,2 +1,4 @@
 # react_mp
-ReMP3
+ReactJS Mentoring Programm
+
+Homework #1. Webpack
