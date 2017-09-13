@@ -1,4 +1,4 @@
-.movie-item {
+.movieItem {
   display: inline-block;
   width: 290px;
   background: #eee;
@@ -11,14 +11,14 @@
   margin-left: 5px;
 }
 
-.movie-item h1 {
+.movieItem h1 {
   max-height: 100px;
   padding-bottom: 10px;
   margin-bottom: 15px;
   border-bottom: 1px solid #ddd;
 }
 
-.movie-item p {
+.movieItem p {
   height: 190px;
   overflow: hidden;
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import MovieItem from '../MovieItem/MovieItem';
-import './movie-list.scss';
+import styles from './movie-list.scss';
 
 class MovieList extends Component {
   constructor() {
@@ -27,8 +27,8 @@ class MovieList extends Component {
 
   render() {
     return (
-      <div className="container">
-        { this.state.movies.length > 0 ?  this.state.movies : (<h1 className="text-center text-muted">No movies found</h1>)}
+      <div className={styles.container}>
+        { this.state.movies.length > 0 ?  this.state.movies : (<h1>No movies found</h1>)}
       </div>
     );
   }

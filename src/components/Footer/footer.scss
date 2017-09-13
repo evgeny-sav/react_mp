@@ -1,3 +1,14 @@
+.container {
+  display: block;
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer {
+  height: 50px;
+}
+
 .footer {
   background: #414141;
   line-height: 50px;
