@@ -11,7 +11,7 @@ module.exports = {
     filename: '[name].bundle_[hash].js'
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.scss'],
+    extensions: ['.jsx', '.js'],
   },
   module: {
     rules: [
@@ -26,7 +26,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]'
+              name: '[path][name]_[hash].[ext]'
             }
           }
         ]
