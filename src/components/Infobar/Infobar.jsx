@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SortBy from '../SortBy/SortBy';
 import styles from './infobar.scss';
 
 class Infobar extends Component {
@@ -7,11 +8,7 @@ class Infobar extends Component {
       <div className={styles.infobar}>
         <div className={styles.container}>
           <span>7 movies found</span>
-          <span>Sort by:</span>
-          <ul className={styles.listInline}>
-            <li><a href="#" className="text-danger">release date</a></li>
-            <li><a href="#" className="text-muted">rating</a></li>
-          </ul>
+          <SortBy/>
         </div>
       </div>
     );

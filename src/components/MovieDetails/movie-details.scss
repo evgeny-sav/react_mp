@@ -1,0 +1,19 @@
+.movieAvatar {
+  display: inline-block;
+  width: 25%;
+  height: auto;
+  margin-right: 30px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.movieDescription {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  h2 {
+    color: #f35162;
+  }
+}

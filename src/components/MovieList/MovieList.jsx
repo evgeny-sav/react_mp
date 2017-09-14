@@ -10,7 +10,9 @@ class MovieList extends Component {
     this.state = {
       movies: []
     };
+  }
 
+  componentDidMount() {
     MovieList.getMovies().then(movies => {
       this.setState({
         movies: movies.data.map(movie => {
@@ -18,7 +20,6 @@ class MovieList extends Component {
         })
       })
     });
-
   }
 
   static getMovies() {
