@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -11,7 +11,7 @@ class App extends Component {
       <div className={styles.outer}>
         <div className={styles.wrapper}>
           <Header />
-          <Infobar/>
+          <Infobar />
           <Main />
           <div className={styles.push}>&nbsp;</div>
         </div>

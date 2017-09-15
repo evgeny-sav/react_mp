@@ -8,7 +8,7 @@ class Infobar extends Component {
       <div className={styles.infobar}>
         <div className={styles.container}>
           <span>7 movies found</span>
-          <SortBy/>
+          <SortBy />
         </div>
       </div>
     );

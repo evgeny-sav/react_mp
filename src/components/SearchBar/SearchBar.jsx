@@ -7,7 +7,9 @@ class SearchBar extends Component {
       <form>
         <h1>FIND YOUR MOVIE</h1>
         <input type="email" id="search-movie" placeholder="Search" />
-        <p className="text-uppercase">Search by: <a href="#">Director</a> <a href="#">Title</a></p>
+        <p className="text-uppercase">
+          Search by: <a href="#">Director</a> <a href="#">Title</a>
+        </p>
         <button type="submit">Search</button>
       </form>
     );

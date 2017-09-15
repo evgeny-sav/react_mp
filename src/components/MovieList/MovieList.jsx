@@ -8,7 +8,7 @@ class MovieList extends Component {
     super();
 
     this.state = {
-      movies: []
+      movies: [],
     };
   }
 
@@ -16,9 +16,15 @@ class MovieList extends Component {
     MovieList.getMovies().then(movies => {
       this.setState({
         movies: movies.data.map(movie => {
-          return <MovieItem key={movie.id} title={movie.title} description={movie.description} />;
-        })
-      })
+          return (
+            <MovieItem
+              key={movie.id}
+              title={movie.title}
+              description={movie.description}
+            />
+          );
+        }),
+      });
     });
   }
 
@@ -29,7 +35,11 @@ class MovieList extends Component {
   render() {
     return (
       <div className={styles.container}>
-        { this.state.movies.length > 0 ?  this.state.movies : (<h1>No movies found</h1>)}
+        {this.state.movies.length > 0 ? (
+          this.state.movies
+        ) : (
+          <h1>No movies found</h1>
+        )}
       </div>
     );
   }

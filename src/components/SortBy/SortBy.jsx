@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styles from './sortby.scss';
 
 class SortBy extends Component {
@@ -6,8 +6,16 @@ class SortBy extends Component {
     return (
       <ul className={styles.listInline}>
         <li>SORT BY: </li>
-        <li><a href="#" className="text-danger">release date</a></li>
-        <li><a href="#" className="text-muted">rating</a></li>
+        <li>
+          <a href="#" className="text-danger">
+            release date
+          </a>
+        </li>
+        <li>
+          <a href="#" className="text-muted">
+            rating
+          </a>
+        </li>
       </ul>
     );
   }
