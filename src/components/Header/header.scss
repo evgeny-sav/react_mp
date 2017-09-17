@@ -8,7 +8,6 @@
 header {
   background: url(../../assets/images/bg.jpg) center center;
   min-height: 370px;
-  //padding: 30px 0;
   color: #fff;
   position: relative;
   box-sizing: border-box;
@@ -30,9 +29,13 @@ header {
     color: #f35162;
     font-weight: bold;
     padding: 20px 0;
+    margin-bottom: 10px;
   }
 
-  .search {
+  .search {}
+
+  .movieDetails {
+    padding-bottom: 50px;
   }
 
   .container {

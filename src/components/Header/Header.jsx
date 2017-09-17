@@ -17,7 +17,9 @@ class Header extends Component {
           <div className={styles.title}>netflixroulette</div>
 
           {this.state.show === 'details' ? (
-            <MovieDetails />
+            <div className={styles.movieDetails}>
+              <MovieDetails />
+            </div>
           ) : (
             <div className={styles.search}>
               <SearchBar />
