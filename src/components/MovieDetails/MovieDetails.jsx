@@ -13,10 +13,7 @@ class MovieDetails extends Component {
         </div>
         <div className={styles.movieDescription}>
           <p className={styles.title}>
-            Pulp Fiction{' '}
-            <span className={styles.rated}>
-              4.1
-            </span>
+            Pulp Fiction <span className={styles.rated}>4.1</span>
           </p>
           <p>Oscar-winning Movies</p>
           <p>

@@ -7,7 +7,7 @@ class MovieItem extends Component {
   render() {
     return (
       <div className={styles.movieItem}>
-        <img src={this.props.imageUrl} alt=""/>
+        <img src={this.props.imageUrl} alt="" />
       </div>
     );
   }
