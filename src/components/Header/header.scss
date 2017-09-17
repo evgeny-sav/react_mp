@@ -6,31 +6,37 @@
 }
 
 header {
-  background: url(http://pinkius.com/data/wallpapers/105/1072757.jpg) center center;
-  min-height: 350px;
-  padding: 30px 0;
+  background: url(../../assets/images/bg.jpg) center center;
+  min-height: 370px;
+  //padding: 30px 0;
   color: #fff;
   position: relative;
-}
-header h1 {
-  margin-top: 0;
+  box-sizing: border-box;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    display: block;
+    background: rgba(0, 0, 0, .6);
+  }
+
+  .title {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 24px;
+    color: #f35162;
+    font-weight: bold;
+    padding: 20px 0;
+  }
+
+  .search {
+  }
+
+  .container {
+    z-index: 2;
+  }
 }
 
-header:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
-  display: block;
-  background: rgba(0, 0, 0, .7);
-}
-
-header .container {
-  z-index: 2;
-}
-
-header form {
-
-}

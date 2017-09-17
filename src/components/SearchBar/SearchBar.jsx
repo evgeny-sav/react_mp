@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
+import classNames from 'classnames';
+import SearchBy from '../SearchBy/SearchBy';
 import styles from './search-bar.scss';
+
+const cx = classNames.bind(styles);
 
 class SearchBar extends Component {
   render() {
     return (
-      <form>
-        <h1>FIND YOUR MOVIE</h1>
-        <input type="email" id="search-movie" placeholder="Search" />
-        <p className="text-uppercase">
-          Search by: <a href="#">Director</a> <a href="#">Title</a>
-        </p>
-        <button type="submit">Search</button>
-      </form>
+      <div className={styles.searchForm}>
+        <form>
+          <p className={styles.formTitle}>FIND YOUR MOVIE</p>
+          <input type="email" id={styles.searchBar} placeholder="Search" />
+          <SearchBy />
+          <button className={styles.submitBtn} type="submit">
+            Search
+          </button>
+        </form>
+      </div>
     );
   }
 }
