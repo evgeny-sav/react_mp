@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import classNames from 'classnames';
 import styles from './movie-details.scss';
-const cx = classNames.bind(styles);
 
 class MovieDetails extends Component {
   render() {
@@ -14,9 +12,9 @@ class MovieDetails extends Component {
           />
         </div>
         <div className={styles.movieDescription}>
-          <p className={cx(styles.movieDescription, styles.title)}>
+          <p className={styles.title}>
             Pulp Fiction{' '}
-            <span className={cx(styles.movieDescription, styles.rated)}>
+            <span className={styles.rated}>
               4.1
             </span>
           </p>
@@ -25,7 +23,7 @@ class MovieDetails extends Component {
             <span className={styles.year}>1994</span>
             <span className={styles.duration}>154min</span>
           </p>
-          <p className={cx(styles.movieDescription, styles.descriptionText)}>
+          <p className={styles.descriptionText}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
             doloremque dolores eum id impedit in magni minima molestias nobis
             nulla obcaecati perspiciatis quam quas quibusdam, repellat tempora

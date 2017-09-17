@@ -7,12 +7,12 @@ class SearchBy extends Component {
   render() {
     return (
       <div className={styles.searchBy}>
-        <p className={cx(styles.searchBy, styles.title)}>Search by</p>
-        <ul className={cx(styles.searchBy, styles.list)}>
-          <li className={cx(styles.searchBy, styles.item, styles.active)}>
+        <p className={styles.title}>Search by</p>
+        <ul className={styles.list}>
+          <li className={cx(styles.item, styles.active)}>
             <a href="#">Director</a>
           </li>
-          <li className={cx(styles.searchBy, styles.item)}>
+          <li className={styles.item}>
             <a href="#">Title</a>
           </li>
         </ul>
