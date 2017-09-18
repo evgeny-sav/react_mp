@@ -13,6 +13,7 @@
     "prettier"
   ],
   "rules": {
+    "quotes": ["error", "single"],
     "prettier/prettier": ["error", "fb"]
   }
 }
