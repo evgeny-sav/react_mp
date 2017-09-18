@@ -13,7 +13,14 @@
     "prettier", "eslint:recommended", "plugin:react/recommended"
   ],
   "rules": {
-    "prettier/prettier": ["error", "fb"],
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "bracketSpacing": false,
+      "jsxBracketSameLine": true,
+      "parser": "flow"
+    }],
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-double"]
   }
