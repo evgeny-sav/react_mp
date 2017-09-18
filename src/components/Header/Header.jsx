@@ -7,7 +7,8 @@ class Header extends Component {
   constructor() {
     super();
     this.state = {
-      show: 'search', // details
+      // show: 'details',
+      show: 'search',
     };
   }
   render() {

@@ -17,6 +17,7 @@
     "prettier", "eslint:recommended", "plugin:react/recommended"
   ],
   "rules": {
+    "no-console": "off",
     "prettier/prettier": ["error", "fb"],
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-double"]
