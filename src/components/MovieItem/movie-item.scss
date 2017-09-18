@@ -1,15 +1,13 @@
 .movieItem {
-  display: block;
-  float: left;
+  display: inline-block;
   width: 260px;
-  height: 372px;
-  overflow: hidden;
-  background: #eee;
+  float: left;
+  //height: 372px;
   box-sizing: border-box;
-  box-shadow: 1px 1px 1px #ccc;
+  ////box-shadow: 1px 1px 1px #ccc;
   margin-bottom: 50px;
   margin-left: 50px;
-  font-size: 0;
+  //font-size: 0;
 
   &:first-child {
     margin-left: 0;
@@ -18,21 +16,44 @@
   &:nth-child(5n) {
     margin-left: 0;
   }
-
-  img {
+  .movieImage {
     width: 100%;
-  }
-
-  h1 {
-    max-height: 100px;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  p {
-    height: 190px;
+    height: 372px;
     overflow: hidden;
+    margin-bottom: 10px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .movieInfo {
+    display: block;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+
+    .title {
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+
+      .year {
+        font-weight: normal;
+        font-size: 12px;
+        vertical-align: top;
+        float: right;
+        border: 1px solid #000;
+        border-radius: 2px;
+        padding: 0 7px;
+      }
+    }
+
+    .genre {
+      margin: 0;
+      font-size: 12px;
+      color: #3c3d41;
+    }
   }
 }
 
@@ -41,5 +62,3 @@
   content: '';
   clear: both;
 }
-
-
