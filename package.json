@@ -8,8 +8,8 @@
     "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "serve": "nodemon server.js",
-    "eslint": "eslint --fix **/*.jsx",
-    "precommit": "lint-staged"
+    "eslint": "eslint **/*.jsx",
+    "precommit": "lint-staged && npm run eslint"
   },
   "lint-staged": {
     "*.{jsx,json,scss}": ["prettier --write", "git add"]
@@ -33,6 +33,7 @@
     "jest": "^20.0.4",
     "nodemon": "^1.11.0",
     "normalize.css": "^7.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

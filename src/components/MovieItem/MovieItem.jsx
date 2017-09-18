@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './movie-item.scss';
-const cx = classNames.bind(styles);
 
 class MovieItem extends Component {
   render() {
@@ -12,5 +11,9 @@ class MovieItem extends Component {
     );
   }
 }
+
+MovieItem.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+};
 
 export default MovieItem;
