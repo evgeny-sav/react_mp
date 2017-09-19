@@ -2,7 +2,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const common = require('./webpack.common');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
@@ -18,14 +18,14 @@ module.exports = merge(common, {
               loader: 'css-loader',
               options: {
                 modules: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]'
-              }
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
             },
-            'sass-loader'
+            'sass-loader',
           ],
-        })
-      }
-    ]
+        }),
+      },
+    ],
   },
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin({
@@ -36,9 +36,9 @@ module.exports = merge(common, {
     new ExtractTextPlugin('styles_[hash].css'),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
-    new UglifyJSPlugin()
-  ]
+    new UglifyJSPlugin(),
+  ],
 });

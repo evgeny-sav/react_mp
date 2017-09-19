@@ -3,23 +3,12 @@
     "browser": true,
     "node": true
   },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "plugins": [
-    "prettier", "react"
-  ],
   "extends": [
-    "prettier", "eslint:recommended", "plugin:react/recommended"
+    "airbnb",
+    "prettier"
   ],
   "rules": {
-    "no-console": "off",
-    "prettier/prettier": ["error", "fb"],
-    "quotes": ["error", "single"],
-    "jsx-quotes": ["error", "prefer-double"]
+    "linebreak-style": ["error", "unix"],
+    "no-console": "off"
   }
 }

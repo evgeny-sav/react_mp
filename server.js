@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(`${__dirname}/dist`));
 app.use(cors());
 
 app.get('/api/v1/movies', (req, res) => {
@@ -54,16 +54,14 @@ app.get('/api/v1/movies', (req, res) => {
       title: 'Spider-man',
       description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries',
-      image_url:
-        'http://assets1.ignimgs.com/2017/03/24/2007-spider-man3-8-1490395333224_1280w.jpg',
+      image_url: 'http://assets1.ignimgs.com/2017/03/24/2007-spider-man3-8-1490395333224_1280w.jpg',
     },
     {
       id: 7,
       title: 'Iron man',
       description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries',
-      image_url:
-        'http://pad.mymovies.it/filmclub/2012/06/004/locandinapg9.jpg',
+      image_url: 'http://pad.mymovies.it/filmclub/2012/06/004/locandinapg9.jpg',
     },
   ]);
 });
