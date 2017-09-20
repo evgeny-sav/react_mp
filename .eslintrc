@@ -4,8 +4,7 @@
     "node": true
   },
   "extends": [
-    "airbnb",
-    "prettier"
+    "airbnb"
   ],
   "rules": {
     "linebreak-style": ["error", "unix"],

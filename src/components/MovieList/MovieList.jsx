@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Axios from 'axios';
 import classNames from 'classnames';
 import MovieItem from '../MovieItem/MovieItem';
@@ -20,7 +20,7 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    MovieList.getMovies().then(movies => {
+    MovieList.getMovies().then((movies) => {
       this.setState({
         movies: movies.data.map(movie => (
           <MovieItem

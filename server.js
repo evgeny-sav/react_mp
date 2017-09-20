@@ -66,7 +66,7 @@ app.get('/api/v1/movies', (req, res) => {
   ]);
 });
 
-app.listen(3000, err => {
+app.listen(3000, (err) => {
   if (err) throw err;
   console.log('Server is running on port 3000');
 });

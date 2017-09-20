@@ -8,14 +8,13 @@
     "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "serve": "nodemon server.js",
-    "eslint": "eslint --fix **/*.{jsx,js}",
-    "prettier": "prettier --write **/*.{jsx,js}",
+    "eslint": "eslint **/*.{jsx,js}",
+    "eslint:fix": "eslint --fix **/*.{jsx,js}",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{jsx,js}": [
-      "prettier --write",
-      "eslint",
+      "eslint --fix",
       "git add"
     ]
   },
@@ -60,16 +59,13 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.5",
     "eslint": "^4.7.0",
-    "eslint-config-prettier": "^2.4.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
     "file-loader": "^0.11.2",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.1",
     "node-sass": "^4.5.3",
-    "prettier": "^1.7.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "stylelint": "^8.1.1",

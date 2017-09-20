@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import styles from './header.scss';

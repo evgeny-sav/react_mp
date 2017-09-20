@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './movie-item.scss';
 
-const MovieItem = ({title, imageUrl}) => (
+const MovieItem = ({ title, imageUrl }) => (
   <div className={styles.movieItem}>
     <div className={styles.movieImage}>
       <img src={imageUrl} alt="" />
