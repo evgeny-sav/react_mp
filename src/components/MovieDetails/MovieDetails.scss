@@ -1,7 +1,7 @@
 .movieDetails {
   .movieAvatar {
     display: inline-block;
-    width: 300px;
+    width: 30%;
     height: auto;
     margin-right: 100px;
 
@@ -12,7 +12,7 @@
 
   .movieDescription {
     display: inline-block;
-    width: 700px;
+    width: 60%;
     vertical-align: top;
     color: #f8f8f8;
 
@@ -43,8 +43,7 @@
     }
 
     .descriptionText, .director, .cast {
-      display: block;
-      width: 75%;
+      width: 80%;
     }
 
     .descriptionText {

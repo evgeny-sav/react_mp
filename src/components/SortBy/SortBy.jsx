@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './sortby.scss';
+import styles from './SortBy.scss';
 
 class SortBy extends Component {
   constructor() {

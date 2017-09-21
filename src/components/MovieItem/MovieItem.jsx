@@ -1,6 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './movie-item.scss';
+import styles from './MovieItem.scss';
+
+const cx = classNames.bind(styles);
 
 const MovieItem = ({ title, imageUrl }) => (
   <div className={styles.movieItem}>
@@ -8,7 +11,7 @@ const MovieItem = ({ title, imageUrl }) => (
       <img src={imageUrl} alt="" />
     </div>
     <div className={styles.movieInfo}>
-      <p className={styles.title}>
+      <p className={cx(styles.title, styles.clearfix)}>
         {title} <span className={styles.year}>2017</span>
       </p>
       <p className={styles.genre}>Fiction</p>

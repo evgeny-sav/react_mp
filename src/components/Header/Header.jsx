@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import styles from './header.scss';
+import styles from './Header.scss';
 
 class Header extends Component {
   constructor() {

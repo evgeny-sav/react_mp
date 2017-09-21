@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import SortBy from '../SortBy/SortBy';
-import styles from './infobar.scss';
+import styles from './InfoBar.scss';
 
 const cx = classNames.bind(styles);
 

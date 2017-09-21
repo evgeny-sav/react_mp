@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './movie-details.scss';
+import styles from './MovieDetails.scss';
 
 const MovieDetails = () => (
   <div className={styles.movieDetails}>

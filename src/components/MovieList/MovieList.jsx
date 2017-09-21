@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import API from '../../api';
 import MovieItem from '../MovieItem/MovieItem';
-import styles from './movie-list.scss';
+import styles from './MovieList.scss';
 
 const cx = classNames.bind(styles);
 

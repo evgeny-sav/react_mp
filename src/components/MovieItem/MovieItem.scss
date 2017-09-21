@@ -1,5 +1,4 @@
 .movieItem {
-  display: inline-block;
   width: 260px;
   float: left;
   box-sizing: border-box;
@@ -24,7 +23,6 @@
   }
 
   .movieInfo {
-    display: block;
     font-family: 'Open Sans', Helvetica, sans-serif;
 
     .title {

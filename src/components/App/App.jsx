@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-import Infobar from '../Infobar/Infobar';
-import styles from './app.scss';
+import Infobar from '../Infobar/InfoBar';
+import styles from './App.scss';
 
 const App = () => (
   <div className={styles.outer}>

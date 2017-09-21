@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import styles from './searchby.scss';
+import styles from './SearchBy.scss';
 
 const cx = classNames.bind(styles);
 
