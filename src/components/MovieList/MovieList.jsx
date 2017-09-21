@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 import classNames from 'classnames';
+import API from '../../api';
 import MovieItem from '../MovieItem/MovieItem';
 import styles from './movie-list.scss';
 
 const cx = classNames.bind(styles);
 
 class MovieList extends Component {
-  static getMovies() {
-    return Axios.get('http://localhost:3000/api/v1/movies');
-  }
-
   constructor() {
     super();
 
@@ -20,7 +16,7 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    MovieList.getMovies().then((movies) => {
+    API.getMovies().then((movies) => {
       this.setState({
         movies: movies.data.map(movie => (
           <MovieItem
