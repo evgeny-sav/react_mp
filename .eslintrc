@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "no-console": "off",
+    "max-len": ["error", 120]
+  }
+}

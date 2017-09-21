@@ -1,0 +1,41 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  background: url(../../assets/images/bg.jpg) center center;
+  min-height: 370px;
+  color: #fff;
+  position: relative;
+  box-sizing: border-box;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    display: block;
+    background: rgba(0, 0, 0, .6);
+  }
+
+  .title {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 24px;
+    color: #f35162;
+    font-weight: bold;
+    padding: 20px 0;
+    margin-bottom: 10px;
+  }
+
+  .search {}
+
+  .movieDetails {
+    padding-bottom: 50px;
+  }
+}
+

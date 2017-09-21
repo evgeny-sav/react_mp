@@ -1,0 +1,28 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.noMovies {
+  display: block;
+  min-height: 100px;
+  color: #ccc;
+  text-align: center;
+  position: relative;
+
+  .text {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.clearfix {
+  display: table;
+  content: '';
+  clear: both;
+}

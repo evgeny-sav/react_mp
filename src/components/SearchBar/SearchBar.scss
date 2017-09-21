@@ -1,0 +1,55 @@
+.searchForm {
+  margin-top: 60px;
+
+  .formTitle {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  #searchBar {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #f35162;
+    background: rgba(0, 0, 0, .75);
+    height: 75px;
+    line-height: 75px;
+    font-size: 20px;
+    padding: 15px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    color: #fff;
+  }
+
+  .submitBtn {
+    float: right;
+    width: 300px;
+    margin-top: 20px;
+    background: #f35162;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: none;
+    border-radius: 3px;
+    -webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    -ms-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background-color: saturate(#f35162, 10%);
+    }
+  }
+}

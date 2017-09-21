@@ -1,0 +1,16 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.footer {
+  height: 50px;
+  background: #414141;
+  line-height: 50px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 18px;
+  color: #f35162;
+  font-weight: bold;
+}

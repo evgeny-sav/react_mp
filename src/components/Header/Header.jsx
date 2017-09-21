@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
-import './header.scss';
-import SearchBar from "../SearchBar/SearchBar";
-import styles from './header.scss'
+import SearchBar from '../SearchBar/SearchBar';
+import MovieDetails from '../MovieDetails/MovieDetails';
+import styles from './Header.scss';
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      // show: 'details',
+      show: 'search',
+    };
+  }
   render() {
+    const { show } = this.state;
     return (
-      <header>
+      <div className={styles.header}>
         <div className={styles.container}>
-          <SearchBar/>
+          <div className={styles.title}>netflixroulette</div>
+
+          {show === 'details' ? (
+            <div className={styles.movieDetails}>
+              <MovieDetails />
+            </div>
+          ) : (
+            <div className={styles.search}>
+              <SearchBar />
+            </div>
+          )}
         </div>
-      </header>
+      </div>
     );
-  };
+  }
 }
 
 export default Header;
