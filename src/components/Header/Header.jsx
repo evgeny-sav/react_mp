@@ -12,12 +12,13 @@ class Header extends Component {
     };
   }
   render() {
+    const { show } = this.state;
     return (
-      <header>
+      <div className={styles.header}>
         <div className={styles.container}>
           <div className={styles.title}>netflixroulette</div>
 
-          {this.state.show === 'details' ? (
+          {show === 'details' ? (
             <div className={styles.movieDetails}>
               <MovieDetails />
             </div>
@@ -27,7 +28,7 @@ class Header extends Component {
             </div>
           )}
         </div>
-      </header>
+      </div>
     );
   }
 }

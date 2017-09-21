@@ -24,9 +24,10 @@ class MovieList extends Component {
   }
 
   render() {
+    const { movies } = this.state;
     return (
       <div className={cx(styles.container, styles.clearfix)}>
-        {this.state.movies.length > 0 ? (
+        { movies.length > 0 ? (
           this.state.movies.map(movie => (
             <MovieItem
               key={movie.id}
