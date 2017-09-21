@@ -1,7 +1,11 @@
 @import '~normalize.css';
 
-html, body, #root {
+html, body {
   font-family: 'Open Sans', Helvetica, sans-serif;
   height: 100%;
   margin: 0;
+}
+
+:global(#root) {
+  height: 100%;
 }
