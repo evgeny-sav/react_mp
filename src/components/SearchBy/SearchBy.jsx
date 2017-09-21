@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import styles from './SearchBy.scss';
 
 const cx = classNames.bind(styles);
@@ -14,24 +15,19 @@ class SearchBy extends Component {
 
   handelSearch(e, val) {
     e.preventDefault();
-    switch (val) {
-      case 'title': this.setState({ searchBy: val });
-        break;
-      case 'director': this.setState({ searchBy: val });
-        break;
-      default: this.setState({ searchBy: 'title' });
-    }
+    this.props.onHandleSearch(val);
   }
 
   render() {
+    const { activeFilter } = this.props;
     return (
       <div className={styles.searchBy}>
         <p className={styles.title}>Search by</p>
         <ul className={styles.list}>
-          <li className={cx(styles.item, this.state.searchBy === 'director' ? styles.active : null)}>
+          <li className={cx('item', { [styles.active]: activeFilter === 'director' })}>
             <a href="" onClick={e => this.handelSearch(e, 'director')}>Director</a>
           </li>
-          <li className={cx(styles.item, this.state.searchBy === 'title' ? styles.active : null)}>
+          <li className={cx('item', { [styles.active]: activeFilter === 'title' })}>
             <a href="" onClick={e => this.handelSearch(e, 'title')}>Title</a>
           </li>
         </ul>
@@ -39,5 +35,10 @@ class SearchBy extends Component {
     );
   }
 }
+
+SearchBy.propTypes = {
+  onHandleSearch: PropTypes.func.isRequired,
+  activeFilter: PropTypes.string.isRequired,
+};
 
 export default SearchBy;

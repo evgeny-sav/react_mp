@@ -10,9 +10,9 @@ const MovieDetails = () => (
       />
     </div>
     <div className={styles.movieDescription}>
-      <p className={styles.title}>
+      <div className={styles.title}>
         Pulp Fiction <span className={styles.rated}>4.1</span>
-      </p>
+      </div>
       <p>Oscar-winning Movies</p>
       <p>
         <span className={styles.year}>1994</span>

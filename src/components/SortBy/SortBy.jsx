@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import classNames from 'classnames/bind';
 import styles from './SortBy.scss';
+
+const cx = classNames.bind(styles);
 
 class SortBy extends Component {
   constructor() {
@@ -9,28 +12,23 @@ class SortBy extends Component {
     };
   }
 
-  handelSort(e, val) {
+  handelSort(e, val = 'rate') {
     e.preventDefault();
-    switch (val) {
-      case 'rate': this.setState({ sortBy: val });
-        break;
-      case 'release': this.setState({ sortBy: val });
-        break;
-      default: this.setState({ sortBy: 'rate' });
-    }
+    this.setState({ sortBy: val });
   }
 
   render() {
+    const { sortBy } = this.state;
     return (
       <div className={styles.filters}>
         <p className={styles.title}>Sort by: </p>
         <ul className={styles.filtersList}>
-          <li className={this.state.sortBy === 'release' ? styles.active : null}>
+          <li className={cx({ [styles.active]: sortBy === 'release' })}>
             <a href="" onClick={e => this.handelSort(e, 'release')}>
               release date
             </a>
           </li>
-          <li className={this.state.sortBy === 'rate' ? styles.active : null}>
+          <li className={cx({ [styles.active]: sortBy === 'rate' })}>
             <a href="" onClick={e => this.handelSort(e, 'rate')}>
               rating
             </a>
