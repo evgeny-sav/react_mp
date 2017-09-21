@@ -18,14 +18,7 @@ class MovieList extends Component {
   componentDidMount() {
     API.getMovies().then((movies) => {
       this.setState({
-        movies: movies.data.map(movie => (
-          <MovieItem
-            key={movie.id}
-            title={movie.title}
-            description={movie.description}
-            imageUrl={movie.image_url}
-          />
-        )),
+        movies: [...movies.data],
       });
     });
   }
@@ -34,7 +27,14 @@ class MovieList extends Component {
     return (
       <div className={cx(styles.container, styles.clearfix)}>
         {this.state.movies.length > 0 ? (
-          this.state.movies
+          this.state.movies.map(movie => (
+            <MovieItem
+              key={movie.id}
+              title={movie.title}
+              description={movie.description}
+              imageUrl={movie.image_url}
+            />
+          ))
         ) : (
           <div className={styles.noMovies}>
             <h1 className={styles.text}>No movies found</h1>
