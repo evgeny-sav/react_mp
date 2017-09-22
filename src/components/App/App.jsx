@@ -5,8 +5,11 @@ import Footer from '../Footer/Footer';
 import Infobar from '../Infobar/InfoBar';
 import styles from './App.scss';
 
-const App = () => (
+const App = props => (
   <div className={styles.outer}>
+    {
+      props.children // eslint-disable-line
+    }
     <div className={styles.wrapper}>
       <Header />
       <Infobar />
