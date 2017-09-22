@@ -3,8 +3,8 @@ import SearchBy from '../SearchBy/SearchBy';
 import styles from './SearchBar.scss';
 
 class SearchBar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchBy: 'title',
     };

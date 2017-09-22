@@ -5,8 +5,8 @@ import styles from './SortBy.scss';
 const cx = classNames.bind(styles);
 
 class SortBy extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       sortBy: 'rate',
     };
@@ -23,12 +23,12 @@ class SortBy extends Component {
       <div className={styles.filters}>
         <p className={styles.title}>Sort by: </p>
         <ul className={styles.filtersList}>
-          <li className={cx({ [styles.active]: sortBy === 'release' })}>
+          <li className={cx({ active: sortBy === 'release' })}>
             <a href="" onClick={e => this.handelSort(e, 'release')}>
               release date
             </a>
           </li>
-          <li className={cx({ [styles.active]: sortBy === 'rate' })}>
+          <li className={cx({ active: sortBy === 'rate' })}>
             <a href="" onClick={e => this.handelSort(e, 'rate')}>
               rating
             </a>

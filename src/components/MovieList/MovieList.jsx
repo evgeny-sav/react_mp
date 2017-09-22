@@ -7,8 +7,8 @@ import styles from './MovieList.scss';
 const cx = classNames.bind(styles);
 
 class MovieList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       movies: [],
@@ -28,7 +28,7 @@ class MovieList extends Component {
     return (
       <div className={cx(styles.container, styles.clearfix)}>
         { movies.length > 0 ? (
-          this.state.movies.map(movie => (
+          movies.map(movie => (
             <MovieItem
               key={movie.id}
               title={movie.title}
