@@ -4,5 +4,6 @@
     ["env", {
       "modules": false
     }]
-  ]
+  ],
+  "plugins": ["transform-class-properties"]
 }
