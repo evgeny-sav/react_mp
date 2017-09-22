@@ -4,8 +4,8 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import styles from './Header.scss';
 
 class Header extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // show: 'details',
       show: 'search',
