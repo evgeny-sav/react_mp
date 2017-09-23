@@ -1,10 +1,14 @@
 import React from 'react';
-import MovieList from '../MovieList/MovieList';
+import PropTypes from 'prop-types';
 
-const Main = () => (
+const Main = props => (
   <main>
-    <MovieList />
+    {props.children}
   </main>
 );
+
+Main.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export default Main;
