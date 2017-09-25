@@ -21,18 +21,15 @@ ReactDOM.render(
             <Header>
               <Switch>
                 <Route path="/" component={SearchBar} exact />
-                <Route path="/details">
-                  <MovieDetails />
-                </Route>
+                <Route path="/search" component={SearchBar} />
+                <Route path="/film/:id" component={MovieDetails} />
               </Switch>
             </Header>
             <InfoBar>
               <Route path="/" component={SortBy} />
             </InfoBar>
             <Main>
-              <Route path="/" exact>
-                <MovieList />
-              </Route>
+              <MovieList />
             </Main>
           </div>
         </Route>

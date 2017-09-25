@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import API from '../../api';
 import MovieItem from '../MovieItem/MovieItem';
 import styles from './MovieList.scss';
@@ -15,12 +17,27 @@ class MovieList extends Component {
     };
   }
 
-  componentDidMount() {
-    API.getMovies().then((movies) => {
-      this.setState({
-        movies: [...movies.data],
+  componentWillReceiveProps({ location }) {
+    const searchFor = 'Batman';
+    const searchBy = 'title';
+    if (/search/.test(location.pathname)) {
+      const nextSearchParams = new URLSearchParams(location.search);
+      const prevSearchParams = new URLSearchParams(this.props.location.search);
+      if (location.pathname === this.props.location.pathname &&
+        nextSearchParams.get('searchBy') === prevSearchParams.get('searchBy') &&
+        nextSearchParams.get('searchFor') === prevSearchParams.get('searchFor')) {
+        console.log('no update');
+        return false;
+      }
+
+      API.getData(searchFor, searchBy).then((res) => {
+        console.log('update ...');
+        this.setState({
+          movies: [...res],
+        });
       });
-    });
+    }
+    return true;
   }
 
   render() {
@@ -30,6 +47,7 @@ class MovieList extends Component {
         { movies.length > 0 ? (
           movies.map(movie => (
             <MovieItem
+              movieObj={movie}
               key={movie.id}
               title={movie.title}
               description={movie.description}
@@ -46,4 +64,8 @@ class MovieList extends Component {
   }
 }
 
-export default MovieList;
+MovieList.propTypes = {
+  location: PropTypes.object.isRequired, // eslint-disable-line
+};
+
+export default withRouter(MovieList);

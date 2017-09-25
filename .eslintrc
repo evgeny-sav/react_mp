@@ -9,6 +9,6 @@
   "rules": {
     "linebreak-style": ["error", "unix"],
     "no-console": "off",
-    "max-len": ["error", 120]
+    "max-len": ["error", 220]
   }
 }
