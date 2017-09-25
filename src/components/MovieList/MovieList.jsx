@@ -9,6 +9,12 @@ import styles from './MovieList.scss';
 const cx = classNames.bind(styles);
 
 class MovieList extends Component {
+  static async getData() {
+    const searchFor = 'Batman';
+    const searchBy = 'title';
+    return await API.getData(searchFor, searchBy); // eslint-disable-line
+  }
+
   constructor(props) {
     super(props);
 
@@ -18,8 +24,6 @@ class MovieList extends Component {
   }
 
   componentWillReceiveProps({ location }) {
-    const searchFor = 'Batman';
-    const searchBy = 'title';
     if (/search/.test(location.pathname)) {
       const nextSearchParams = new URLSearchParams(location.search);
       const prevSearchParams = new URLSearchParams(this.props.location.search);
@@ -30,7 +34,7 @@ class MovieList extends Component {
         return false;
       }
 
-      API.getData(searchFor, searchBy).then((res) => {
+      MovieList.getData().then((res) => {
         console.log('update ...');
         this.setState({
           movies: [...res],
