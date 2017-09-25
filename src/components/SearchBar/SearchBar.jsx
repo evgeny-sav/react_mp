@@ -28,7 +28,7 @@ class SearchBar extends Component {
           <div className={styles.formTitle}>Find your movie</div>
           <input type="text" id={styles.searchBar} placeholder="Search" value={this.state.searchFor} onChange={() => this.handleInputChange} />
           <SearchBy onHandleSearchBy={val => this.handelSearchBy(val)} activeFilter={this.state.searchBy} />
-          <Link to={`/search/?searchFor=${this.state.searchFor}&searchBy=${this.state.searchBy}`} className={styles.submitBtn}>Search</Link>
+          <Link to={`/search?searchFor=${this.state.searchFor}&searchBy=${this.state.searchBy}`} className={styles.submitBtn}>Search</Link>
         </div>
       </div>
     );
