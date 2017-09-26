@@ -9,12 +9,6 @@ import styles from './MovieList.scss';
 const cx = classNames.bind(styles);
 
 class MovieList extends Component {
-  static async getData() {
-    const searchFor = 'Batman';
-    const searchBy = 'title';
-    return await API.getData(searchFor, searchBy); // eslint-disable-line
-  }
-
   constructor(props) {
     super(props);
 
@@ -24,19 +18,29 @@ class MovieList extends Component {
   }
 
   componentWillReceiveProps({ location }) {
-    const [searchBy, searchFor] = ['title', 'Batman'];
     if (/search/.test(location.pathname)) {
       if (location.pathname === this.props.location.pathname &&
           location.search === this.props.location.search) {
         return;
       }
+      // get searchBy and searchFor from params
+      const searchParams = new URLSearchParams(location.search);
+      const searchFor = searchParams.get('searchFor');
+      const searchBy = searchParams.get('searchBy');
 
-      MovieList.getData().then((movies) => {
-        const movie = movies.data.filter(m => m[searchBy] === searchFor);
-        this.setState({
-          movies: movie,
-        });
+      this.getFilteredData(searchBy, searchFor);
+    }
+  }
+
+  async getFilteredData(searchBy, searchFor) {
+    try {
+      const movies = await API.getData(searchBy, searchFor);
+      const movie = movies.data.filter(m => m[searchBy] === searchFor);
+      this.setState({
+        movies: movie,
       });
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -65,10 +69,7 @@ class MovieList extends Component {
 }
 
 MovieList.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-    search: PropTypes.string,
-  }).isRequired,
+  location: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default withRouter(MovieList);

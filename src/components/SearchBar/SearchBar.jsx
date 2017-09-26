@@ -13,13 +13,13 @@ class SearchBar extends Component {
     };
   }
 
-  handleSearchBy(val = 'title') {
+  handleSearchBy = (val = 'title') => {
     this.setState({ searchBy: val });
-  }
+  };
 
-  handleInputChange(e) {
+  handleInputChange = (e) => {
     this.setState({ searchFor: e.target.value });
-  }
+  };
 
   render() {
     const { searchFor, searchBy } = this.state;
