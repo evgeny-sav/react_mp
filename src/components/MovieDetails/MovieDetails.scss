@@ -1,4 +1,21 @@
 .movieDetails {
+  padding-bottom: 50px;
+
+  .backBtn {
+    text-align: right;
+
+    .btn {
+      background: #3c3d41; // #f35162;
+      text-align: center;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      font-family: 'Open Sans', sans-serif;
+      color: #f35162; // #fff;
+    }
+  }
+
   .movieAvatar {
     display: inline-block;
     width: 30%;

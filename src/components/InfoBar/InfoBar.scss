@@ -15,7 +15,7 @@
     text-align: right;
   }
 }
-.clearfix:after {
+.clearfix::after {
   display: table;
   content: '';
   clear: both;
