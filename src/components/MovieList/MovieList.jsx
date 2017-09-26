@@ -24,24 +24,20 @@ class MovieList extends Component {
   }
 
   componentWillReceiveProps({ location }) {
+    const [searchBy, searchFor] = ['title', 'Batman'];
     if (/search/.test(location.pathname)) {
-      const nextSearchParams = new URLSearchParams(location.search);
-      const prevSearchParams = new URLSearchParams(this.props.location.search);
       if (location.pathname === this.props.location.pathname &&
-        nextSearchParams.get('searchBy') === prevSearchParams.get('searchBy') &&
-        nextSearchParams.get('searchFor') === prevSearchParams.get('searchFor')) {
-        console.log('no update');
-        return false;
+          location.search === this.props.location.search) {
+        return;
       }
 
-      MovieList.getData().then((res) => {
-        console.log('update ...');
+      MovieList.getData().then((movies) => {
+        const movie = movies.data.filter(m => m[searchBy] === searchFor);
         this.setState({
-          movies: [...res],
+          movies: movie,
         });
       });
     }
-    return true;
   }
 
   render() {
@@ -69,7 +65,10 @@ class MovieList extends Component {
 }
 
 MovieList.propTypes = {
-  location: PropTypes.object.isRequired, // eslint-disable-line
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+    search: PropTypes.string,
+  }).isRequired,
 };
 
 export default withRouter(MovieList);

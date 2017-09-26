@@ -5,9 +5,7 @@ export default class API {
     return Axios.get('http://localhost:3000/api/v1/movies');
   }
 
-  static getData(searchFor, searchBy) {
-    return Axios
-      .get('http://localhost:3000/api/v1/movies')
-      .then(movies => movies.data.filter(movie => movie[searchBy] === searchFor));
+  static getData() {
+    return Axios.get('http://localhost:3000/api/v1/movies');
   }
 }

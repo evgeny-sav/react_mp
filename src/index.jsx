@@ -10,31 +10,32 @@ import SortBy from './components/SortBy/SortBy';
 import Main from './components/Main/Main';
 import NotFound from './components/NotFound/NotFound';
 import './index.scss';
-import MovieList from './components/MovieList/MovieList';
 
-ReactDOM.render(
-  <Router>
-    <App>
-      <Switch>
-        <Route path="/">
-          <div>
-            <Header>
-              <Switch>
-                <Route path="/" component={SearchBar} exact />
-                <Route path="/search" component={SearchBar} />
-                <Route path="/film/:id" component={MovieDetails} />
-              </Switch>
-            </Header>
-            <InfoBar>
-              <Route path="/" component={SortBy} />
-            </InfoBar>
-            <Main>
-              <MovieList />
-            </Main>
-          </div>
-        </Route>
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </App>
-  </Router>
-  , document.getElementById('root'));
+function renderRoutes() {
+  return (
+    <Router>
+      <App>
+        <Switch>
+          <Route path="/">
+            <div>
+              <Header>
+                <Switch>
+                  <Route path="/" component={SearchBar} exact />
+                  <Route path="/search" component={SearchBar} />
+                  <Route path="/film/:id" component={MovieDetails} />
+                </Switch>
+              </Header>
+              <InfoBar>
+                <Route path="/" component={SortBy} />
+              </InfoBar>
+              <Main />
+            </div>
+          </Route>
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </App>
+    </Router>
+  );
+}
+
+ReactDOM.render(renderRoutes(), document.getElementById('root'));

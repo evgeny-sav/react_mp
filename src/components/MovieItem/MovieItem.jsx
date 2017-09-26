@@ -23,7 +23,12 @@ const MovieItem = ({ title, imageUrl, movieObj }) => (
 );
 
 MovieItem.propTypes = {
-  movieObj: PropTypes.object.isRequired, // eslint-disable-line
+  movieObj: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };

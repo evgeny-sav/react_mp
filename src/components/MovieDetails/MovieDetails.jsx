@@ -5,7 +5,7 @@ import styles from './MovieDetails.scss';
 const MovieDetails = () => (
   <div className={styles.movieDetails}>
     <div className={styles.backBtn}>
-      <Link to="/search" className={styles.btn}>Back to Search</Link>
+      <Link to="/" className={styles.btn}>Back to Search</Link>
     </div>
     <div className={styles.movieAvatar}>
       <img

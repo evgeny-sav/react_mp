@@ -13,22 +13,23 @@ class SearchBar extends Component {
     };
   }
 
-  handelSearchBy(val = 'title') {
+  handleSearchBy(val = 'title') {
     this.setState({ searchBy: val });
   }
 
-  handleInputChange() {
-    this.setState({ searchFor: 'Batman' }); // e.target.value
+  handleInputChange(e) {
+    this.setState({ searchFor: e.target.value });
   }
 
   render() {
+    const { searchFor, searchBy } = this.state;
     return (
       <div className={styles.searchForm}>
         <div>
           <div className={styles.formTitle}>Find your movie</div>
-          <input type="text" id={styles.searchBar} placeholder="Search" value={this.state.searchFor} onChange={() => this.handleInputChange} />
-          <SearchBy onHandleSearchBy={val => this.handelSearchBy(val)} activeFilter={this.state.searchBy} />
-          <Link to={`/search?searchFor=${this.state.searchFor}&searchBy=${this.state.searchBy}`} className={styles.submitBtn}>Search</Link>
+          <input type="text" id={styles.searchBar} placeholder="Search" value={searchFor} onChange={e => this.handleInputChange(e)} />
+          <SearchBy onHandleSearchBy={val => this.handleSearchBy(val)} activeFilter={searchBy} />
+          <Link to={`/search?searchFor=${searchFor}&searchBy=${searchBy}`} className={styles.submitBtn}>Search</Link>
         </div>
       </div>
     );
