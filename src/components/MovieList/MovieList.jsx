@@ -53,9 +53,6 @@ class MovieList extends Component {
             <MovieItem
               movieObj={movie}
               key={movie.id}
-              title={movie.title}
-              description={movie.description}
-              imageUrl={movie.image_url}
             />
           ))
         ) : (

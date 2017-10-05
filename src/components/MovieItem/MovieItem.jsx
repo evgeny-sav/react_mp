@@ -6,16 +6,16 @@ import styles from './MovieItem.scss';
 
 const cx = classNames.bind(styles);
 
-const MovieItem = ({ title, imageUrl, movieObj }) => (
+const MovieItem = ({ movieObj }) => (
   <div className={styles.movieItem}>
     <Link to={`/film/${movieObj.id}`}>
       <div className={styles.movieImage}>
-        <img src={imageUrl} alt="" />
+        <img src={movieObj.image_url} alt="" />
       </div>
     </Link>
     <div className={styles.movieInfo}>
       <p className={cx('title', 'clearfix')}>
-        {title} <span className={styles.year}>2017</span>
+        {movieObj.title} <span className={styles.year}>2017</span>
       </p>
       <p className={styles.genre}>Fiction</p>
     </div>
@@ -29,7 +29,5 @@ MovieItem.propTypes = {
     description: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
   }).isRequired,
-  title: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
 };
 export default MovieItem;
