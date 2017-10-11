@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App/App';
 import movieReducers from './reducers/movies';
-// import searchMovies from './actions/movies'; store.dispatch(searchMovies());
+// import fetchMovies from './actions/movies'; store.dispatch(fetchMovies());
 import './index.scss';
 
 const logger = createLogger();
