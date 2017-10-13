@@ -1,29 +1,30 @@
-import Axios from 'axios';
+import API from '../api';
+import * as constants from '../constants.json';
 
 function fetchMoviesStarted() {
   return {
-    type: 'FETCH_MOVIES_STARTED',
+    type: constants.FETCH_MOVIES_STARTED,
   };
 }
 
 function fetchMoviesError(e) {
   return {
-    type: 'FETCH_MOVIES_ERROR',
+    type: constants.FETCH_MOVIES_ERROR,
     payload: e,
   };
 }
 
 function fetchMoviesCompleted(payload) {
   return {
-    type: 'FETCH_MOVIES_COMPLETED',
+    type: constants.FETCH_MOVIES_COMPLETED,
     payload,
   };
 }
 
-function fetchMovies() {
+function fetchMovies(searchBy, searchFor) {
   return (dispatch) => {
     dispatch(fetchMoviesStarted());
-    Axios.get('http://localhost:3000/api/v1/movies').then((payload) => {
+    API.getData(searchBy, searchFor).then((payload) => {
       dispatch(fetchMoviesCompleted(payload.data));
     }).catch((e) => {
       dispatch(fetchMoviesError(e));

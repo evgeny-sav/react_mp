@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import API from '../../api';
+import fetchMovies from '../../actions/movies';
 import MovieItem from '../MovieItem/MovieItem';
 import styles from './MovieList.scss';
 
 const cx = classNames.bind(styles);
 
 class MovieList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      movies: [],
-    };
-  }
-
   componentWillReceiveProps({ location }) {
     if (/search/.test(location.pathname)) {
       if (location.pathname === this.props.location.pathname &&
@@ -32,20 +25,12 @@ class MovieList extends Component {
     }
   }
 
-  async getFilteredData(searchBy, searchFor) {
-    try {
-      const movies = await API.getData(searchBy, searchFor);
-      const movie = movies.data.filter(m => m[searchBy] === searchFor);
-      this.setState({
-        movies: movie,
-      });
-    } catch (e) {
-      console.log(e);
-    }
+  getFilteredData(searchBy, searchFor) {
+    this.props.dispatch(fetchMovies(searchBy, searchFor));
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies } = this.props;
     return (
       <div className={cx(styles.container, styles.clearfix)}>
         { movies.length > 0 ? (
@@ -67,6 +52,12 @@ class MovieList extends Component {
 
 MovieList.propTypes = {
   location: PropTypes.object.isRequired, // eslint-disable-line
+  movies: PropTypes.array.isRequired, // eslint-disable-line
+  dispatch: PropTypes.func.isRequired,
 };
 
-export default withRouter(MovieList);
+const mapStateToProps = store => ({
+  movies: store.movies,
+});
+
+export default withRouter(connect(mapStateToProps)(MovieList));

@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App/App';
 import movieReducers from './reducers/movies';
-// import fetchMovies from './actions/movies'; store.dispatch(fetchMovies());
 import './index.scss';
 
 const logger = createLogger();
@@ -15,7 +14,7 @@ const reducers = combineReducers({
   movies: movieReducers,
 });
 const middleware = applyMiddleware(logger, thunk);
-const store = createStore(reducers, middleware);
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), middleware); // eslint-disable-line
 
 const renderRoutes = () => <Provider store={store}><Router><App /></Router></Provider>;
 
