@@ -58,6 +58,7 @@ MovieList.propTypes = {
 
 const mapStateToProps = store => ({
   movies: store.movies,
+  sortBy: store.sortBy,
 });
 
 export default withRouter(connect(mapStateToProps)(MovieList));

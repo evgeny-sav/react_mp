@@ -7,11 +7,13 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App/App';
 import movieReducers from './reducers/movies';
+import sortReducer from './reducers/sort';
 import './index.scss';
 
 const logger = createLogger();
 const reducers = combineReducers({
   movies: movieReducers,
+  sortBy: sortReducer,
 });
 const middleware = applyMiddleware(logger, thunk);
 const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), middleware); // eslint-disable-line

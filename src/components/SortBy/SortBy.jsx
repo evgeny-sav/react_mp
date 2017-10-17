@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import styles from './SortBy.scss';
 import * as constants from '../../constants.json';
-import fetchMovies from '../../actions/movies';
+import sort from '../../actions/sort';
 
 const cx = classNames.bind(styles);
 
@@ -16,14 +16,11 @@ class SortBy extends Component {
     };
   }
 
-  handelSort(e, val = constants.SORT_BY_RATE) {
+  handelSort(e, val = constants.NO_SORT) {
     e.preventDefault();
-    const { location, dispatch } = this.props;
     this.setState({ sortBy: val });
-    const searchParams = new URLSearchParams(location.search);
-    const searchFor = searchParams.get('searchFor');
-    const searchBy = searchParams.get('searchBy');
-    dispatch(fetchMovies(searchBy, searchFor, val));
+    const { dispatch } = this.props;
+    dispatch(sort(val));
   }
 
   render() {

@@ -21,23 +21,11 @@ function fetchMoviesCompleted(payload) {
   };
 }
 
-function fetchMovies(searchBy, searchFor, sortBy = constants.SORT_BY_RELEASE) {
+function fetchMovies(searchBy, searchFor) {
   return (dispatch) => {
     dispatch(fetchMoviesStarted());
     API.getMovies(searchBy, searchFor).then((payload) => {
-      let p = null;
-      switch (sortBy) {
-        case constants.SORT_BY_RATE: {
-          p = payload.results.sort((curr, next) => curr.vote_average - next.vote_average).reverse();
-          break;
-        }
-        case constants.SORT_BY_RELEASE: {
-          p = payload.results.sort((curr, next) => parseInt(curr.release_date.substring(0, 4), 10) - parseInt(next.release_date.substring(0, 4), 10)).reverse();
-          break;
-        }
-        default: p = payload.results;
-      }
-      dispatch(fetchMoviesCompleted(p)); // TODO: pagination
+      dispatch(fetchMoviesCompleted(payload)); // TODO: pagination
     }).catch((e) => {
       dispatch(fetchMoviesError(e));
     });
