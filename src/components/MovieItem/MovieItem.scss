@@ -2,15 +2,11 @@
   width: 260px;
   float: left;
   box-sizing: border-box;
-  margin-bottom: 50px;
-  margin-left: 50px;
+  margin-bottom: 20px;
+  margin-right: 50px;
 
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:nth-child(5n) {
-    margin-left: 0;
+  &:nth-child(4n) {
+    margin-right: 0;
   }
   .movieImage {
     width: 100%;
@@ -26,12 +22,15 @@
     font-family: 'Open Sans', Helvetica, sans-serif;
 
     .title {
-      font-size: 20px;
+      height: 60px;
+      padding-right: 50px;
+      position: relative;
+      font-size: 18px;
       line-height: 20px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin: 0;
+      margin: 0 0 10px;
 
       .year {
         font-weight: normal;
@@ -41,6 +40,9 @@
         border: 1px solid #000;
         border-radius: 2px;
         padding: 0 7px;
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
 

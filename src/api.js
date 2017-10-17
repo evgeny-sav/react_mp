@@ -1,13 +1,13 @@
 import Axios from 'axios';
 
 export default class API {
-  static getMovies() {
-    return Axios.get('http://localhost:3000/api/v1/movies');
+  static getMovie(id, appendToResponse) {
+    return Axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=2dbb191a226476d26c943d4227f6bee1&language=en-US&append_to_response=${appendToResponse}`).then(res => res.data);
   }
 
-  static getData(searchBy, searchFor) {
-    const url = `http://netflixroulette.net/api/api.php?${searchBy}=${searchFor}`;
-    console.log(`[netflixroulette]: ${url}`);
-    return Axios.get('http://localhost:3000/api/v1/movies');
+  static getMovies(searchBy, searchFor) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=2dbb191a226476d26c943d4227f6bee1&query=${encodeURI(searchFor)}`;
+    console.log(`[themoviedb]: ${url}`, searchBy);
+    return Axios.get(url).then(res => res.data);
   }
 }

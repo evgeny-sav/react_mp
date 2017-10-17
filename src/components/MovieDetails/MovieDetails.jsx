@@ -1,37 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import API from '../../api';
 import styles from './MovieDetails.scss';
 
-const MovieDetails = () => (
-  <div className={styles.movieDetails}>
-    <div className={styles.backBtn}>
-      <Link to="/" className={styles.btn}>Back to Search</Link>
-    </div>
-    <div className={styles.movieAvatar}>
-      <img
-        src="http://media.comicbook.com/2017/06/the-batman-movie-fan-poster-ben-affleck-1000887.png"
-        alt="Batman movie poster"
-      />
-    </div>
-    <div className={styles.movieDescription}>
-      <div className={styles.title}>
-        The Batman <span className={styles.rated}>9.9</span>
-      </div>
-      <p>Oscar-winning Movies</p>
-      <p>
-        <span className={styles.year}>2018</span>
-        <span className={styles.duration}>154min</span>
-      </p>
-      <p className={styles.descriptionText}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid doloremque dolores eum id
-        impedit in magni minima molestias nobis nullaobcaecati perspiciatis quam quas quibusdam,
-        repellat tempora velit, veniam! A dolores eius est minima nobis.
-      </p>
+class MovieDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movie: {
+        genres: [],
+        overview: '',
+        release_date: '',
+        runtime: 0,
+      },
+    };
+  }
+  componentDidMount() {
+    const { match } = this.props;
+    const id = match.params.id;
+    return API.getMovie(id, 'genres').then((res) => {
+      this.setState({
+        movie: res,
+      });
+    });
+  }
 
-      <p className={styles.director}>Director: Matt Reeves</p>
-      <p className={styles.cast}>Cast: Ben Affleck, Joe Manganiello, Jeremy Irons</p>
-    </div>
-  </div>
-);
+  render() {
+    const { movie } = this.state;
+    return (
+      <div className={styles.movieDetails}>
+        <div className={styles.backBtn}>
+          <Link to="/" className={styles.btn}>Back to Search</Link>
+        </div>
+        <div className={styles.movieAvatar}>
+          <img
+            src={(movie.poster_path) ? `https://image.tmdb.org/t/p/w1000${movie.poster_path}` : 'http://via.placeholder.com/400x500.png/fff/ccc?text=No image'}
+            alt={movie.title}
+          />
+        </div>
+        <div className={styles.movieDescription}>
+          <div className={styles.title}>
+            {movie.title} <span className={styles.rated}>{movie.vote_average}</span>
+          </div>
+          <p>{movie.genres.map(genre => <span key={genre.id}> {genre.name} </span>)}</p>
+          <p>
+            <span className={styles.year}>{movie.release_date.substring(0, 4)}</span>
+            <span className={styles.duration}>{movie.runtime}</span>
+          </p>
+          <p className={styles.descriptionText}>{movie.overview}</p>
+        </div>
+      </div>
+    );
+  }
+}
+
+MovieDetails.propTypes = {
+  movie: PropTypes.object, // eslint-disable-line
+  match: PropTypes.object.isRequired, // eslint-disable-line
+};
 
 export default MovieDetails;

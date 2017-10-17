@@ -1,6 +1,7 @@
 // Server will be moved to separate repo
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 
@@ -80,6 +81,13 @@ app.get('/api/v1/movies', (req, res) => {
       image_url: 'http://pad.mymovies.it/filmclub/2012/06/004/locandinapg9.jpg',
     },
   ]);
+});
+
+app.get('/api/v1/apikey', (req, res) => {
+  res.json({
+    api_key_v3: process.env.API_KEY_V3,
+    api_key_v4: process.env.API_KEY_V4,
+  });
 });
 
 app.listen(3000, (err) => {
