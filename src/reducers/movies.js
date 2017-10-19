@@ -6,7 +6,7 @@ const movieReducers = (state = [], action) => {
       return state;
     }
     case constants.FETCH_MOVIES_ERROR: {
-      throw new Error(action.payload);
+      throw new Error(action.payload.results);
     }
     case constants.FETCH_MOVIES_COMPLETED: {
       return action.payload.results;

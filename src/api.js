@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 export default class API {
-  static getMovie(id, appendToResponse) {
+  static getMovie(id, appendToResponse = 'genres') {
     return Axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=2dbb191a226476d26c943d4227f6bee1&language=en-US&append_to_response=${appendToResponse}`).then(res => res.data);
   }
 

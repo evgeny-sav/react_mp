@@ -7,11 +7,13 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App/App';
 import movieReducers from './reducers/movies';
+import singleMovieReducer from './reducers/singleMovie';
 import sortReducer from './reducers/sort';
 import './index.scss';
 
 const logger = createLogger();
 const reducers = combineReducers({
+  movie: singleMovieReducer,
   movies: movieReducers,
   sortBy: sortReducer,
 });

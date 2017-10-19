@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import API from '../../api';
+import fetchMovie from '../../actions/singleMovie';
 import styles from './MovieDetails.scss';
 
 class MovieDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movie: {
-        genres: [],
-        overview: '',
-        release_date: '',
-        runtime: 0,
-      },
-    };
-  }
   componentDidMount() {
-    const { match } = this.props;
+    const { match, dispatch } = this.props;
     const id = match.params.id;
-    return API.getMovie(id, 'genres').then((res) => {
-      this.setState({
-        movie: res,
-      });
-    });
+    dispatch(fetchMovie(id));
+  }
+
+  componentWillReceiveProps({ location }) {
+    const { dispatch } = this.props;
+    if (/film/.test(location.pathname)) {
+      if (location.pathname === this.props.location.pathname) {
+        return;
+      }
+      const nextId = location.pathname.split('/')[2];
+      dispatch(fetchMovie(nextId));
+    }
   }
 
   render() {
-    const { movie } = this.state;
+    const { movie } = this.props;
     return (
       <div className={styles.movieDetails}>
         <div className={styles.backBtn}>
@@ -58,6 +55,12 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   movie: PropTypes.object, // eslint-disable-line
   match: PropTypes.object.isRequired, // eslint-disable-line
+  dispatch: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired, // eslint-disable-line
 };
 
-export default MovieDetails;
+const mapStateToProps = store => ({
+  movie: store.movie,
+});
+
+export default connect(mapStateToProps)(MovieDetails);

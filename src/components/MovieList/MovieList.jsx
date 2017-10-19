@@ -16,7 +16,6 @@ class MovieList extends Component {
           location.search === this.props.location.search) {
         return;
       }
-      // get searchBy and searchFor from params
       const searchParams = new URLSearchParams(location.search);
       const searchFor = searchParams.get('searchFor');
       const searchBy = searchParams.get('searchBy');
