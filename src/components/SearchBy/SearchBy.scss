@@ -14,7 +14,8 @@
       display: inline-block;
       margin-right: 20px;
 
-      a {
+      button {
+        border: none;
         background: #3c3d41;
         color: #fff;
         text-decoration: none;
@@ -37,7 +38,8 @@
       }
 
       &.active {
-        a {
+        button {
+          border: none;
           background: #f35162;
           color: #fff;
 

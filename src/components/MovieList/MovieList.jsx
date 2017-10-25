@@ -10,6 +10,12 @@ import styles from './MovieList.scss';
 const cx = classNames.bind(styles);
 
 class MovieList extends Component {
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+    movies: PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+  };
+
   componentWillReceiveProps({ location }) {
     if (/search/.test(location.pathname)) {
       if (location.pathname === this.props.location.pathname &&
@@ -49,15 +55,9 @@ class MovieList extends Component {
   }
 }
 
-MovieList.propTypes = {
-  location: PropTypes.object.isRequired, // eslint-disable-line
-  movies: PropTypes.array.isRequired, // eslint-disable-line
-  dispatch: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = store => ({
-  movies: store.movies,
-  sortBy: store.sortBy,
+const mapStateToProps = ({ movies, sortBy }) => ({
+  movies,
+  sortBy,
 });
 
 export default withRouter(connect(mapStateToProps)(MovieList));

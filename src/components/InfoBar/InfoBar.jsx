@@ -21,12 +21,12 @@ const InfoBar = (props) => {
 };
 
 InfoBar.propTypes = {
-  children: PropTypes.element.isRequired, // eslint-disable-line
+  children: PropTypes.element.isRequired,
   movies: PropTypes.array.isRequired, // eslint-disable-line
 };
 
-const mapStateToProps = store => ({
-  movies: store.movies,
+const mapStateToProps = ({ movies }) => ({
+  movies,
 });
 
 export default connect(mapStateToProps)(InfoBar);

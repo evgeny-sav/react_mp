@@ -1,35 +1,28 @@
 import API from '../api';
 import * as constants from '../constants.json';
 
-function fetchMoviesStarted() {
-  return {
-    type: constants.FETCH_MOVIES_STARTED,
-  };
-}
+const fetchMoviesStarted = () => ({
+  type: constants.FETCH_MOVIES_STARTED,
+});
 
-function fetchMoviesError(e) {
-  return {
-    type: constants.FETCH_MOVIES_ERROR,
-    payload: e,
-  };
-}
+const fetchMoviesError = e => ({
+  type: constants.FETCH_MOVIES_ERROR,
+  payload: e,
+});
 
-function fetchMoviesCompleted(payload) {
-  return {
-    type: constants.FETCH_MOVIES_COMPLETED,
-    payload,
-  };
-}
+const fetchMoviesCompleted = payload => ({
+  type: constants.FETCH_MOVIES_COMPLETED,
+  payload,
+});
 
-function fetchMovies(searchBy, searchFor) {
-  return (dispatch) => {
-    dispatch(fetchMoviesStarted());
-    API.getMovies(searchBy, searchFor).then((payload) => {
-      dispatch(fetchMoviesCompleted(payload)); // TODO: pagination
-    }).catch((e) => {
-      dispatch(fetchMoviesError(e));
-    });
-  };
-}
+const fetchMovies = (searchBy, searchFor) => async (dispatch) => {
+  dispatch(fetchMoviesStarted());
+  try {
+    const payload = await API.getMovies(searchBy, searchFor);
+    dispatch(fetchMoviesCompleted(payload)); // TODO: infinite loading
+  } catch (e) {
+    dispatch(fetchMoviesError(e));
+  }
+};
 
 export default fetchMovies;

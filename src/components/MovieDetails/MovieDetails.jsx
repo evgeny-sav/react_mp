@@ -6,19 +6,25 @@ import fetchMovie from '../../actions/singleMovie';
 import styles from './MovieDetails.scss';
 
 class MovieDetails extends Component {
+  static propTypes = {
+    movie: PropTypes.object,
+    match: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
+  };
+
   componentDidMount() {
     const { match, dispatch } = this.props;
-    const id = match.params.id;
+    const { id } = match.params;
     dispatch(fetchMovie(id));
   }
 
-  componentWillReceiveProps({ location }) {
-    const { dispatch } = this.props;
+  componentWillReceiveProps({ location, dispatch, match }) {
     if (/film/.test(location.pathname)) {
       if (location.pathname === this.props.location.pathname) {
         return;
       }
-      const nextId = location.pathname.split('/')[2];
+      const nextId = match.params.id;
       dispatch(fetchMovie(nextId));
     }
   }
@@ -52,15 +58,8 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = {
-  movie: PropTypes.object, // eslint-disable-line
-  match: PropTypes.object.isRequired, // eslint-disable-line
-  dispatch: PropTypes.func.isRequired,
-  location: PropTypes.object.isRequired, // eslint-disable-line
-};
-
-const mapStateToProps = store => ({
-  movie: store.movie,
+const mapStateToProps = ({ movie }) => ({
+  movie,
 });
 
 export default connect(mapStateToProps)(MovieDetails);

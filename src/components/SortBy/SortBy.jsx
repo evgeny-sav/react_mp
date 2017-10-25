@@ -9,35 +9,31 @@ import sort from '../../actions/sort';
 const cx = classNames.bind(styles);
 
 class SortBy extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sortBy: '',
-    };
-  }
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    sortBy: PropTypes.string,
+  };
 
-  handelSort(e, val = constants.NO_SORT) {
+  handleSort(e) {
     e.preventDefault();
-    this.setState({ sortBy: val });
-    const { dispatch } = this.props;
-    dispatch(sort(val));
+    return cb => cb;
   }
 
   render() {
-    const { sortBy } = this.state;
+    const { dispatch, sortBy } = this.props;
     return (
       <div className={styles.filters}>
         <p className={styles.title}>Sort by: </p>
         <ul className={styles.filtersList}>
           <li className={cx({ active: sortBy === constants.SORT_BY_RELEASE })}>
-            <a href="" onClick={e => this.handelSort(e, constants.SORT_BY_RELEASE)}>
+            <button className={styles.button} onClick={e => this.handleSort(e)(dispatch(sort(constants.SORT_BY_RELEASE)))}>
               release date
-            </a>
+            </button>
           </li>
           <li className={cx({ active: sortBy === constants.SORT_BY_RATE })}>
-            <a href="" onClick={e => this.handelSort(e, constants.SORT_BY_RATE)}>
+            <button className={styles.button} onClick={e => this.handleSort(e)(dispatch(sort(constants.SORT_BY_RATE)))}>
               rating
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -45,13 +41,9 @@ class SortBy extends Component {
   }
 }
 
-SortBy.propTypes = {
-  location: PropTypes.object.isRequired, // eslint-disable-line
-  dispatch: PropTypes.func.isRequired, // eslint-disable-line
-};
-
-const mapStateToProps = store => ({
-  movies: store.movies,
+const mapStateToProps = ({ movies, sortBy }) => ({
+  movies,
+  sortBy,
 });
 
 export default connect(mapStateToProps)(SortBy);

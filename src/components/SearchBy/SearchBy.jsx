@@ -16,10 +16,10 @@ const SearchBy = ({ onHandleSearchBy, activeFilter }) => {
       <p className={styles.title}>Search by</p>
       <ul className={styles.list}>
         <li className={cx('item', { active: activeFilter === 'director' })}>
-          <a href="" onClick={e => handelSearchBy(e, 'director')}>Director</a>
+          <button onClick={e => handelSearchBy(e, 'director')}>Director</button>
         </li>
         <li className={cx('item', { active: activeFilter === 'title' })}>
-          <a href="" onClick={e => handelSearchBy(e, 'title')}>Title</a>
+          <button onClick={e => handelSearchBy(e, 'title')}>Title</button>
         </li>
       </ul>
     </div>

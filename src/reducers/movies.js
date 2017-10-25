@@ -1,29 +1,24 @@
 import * as constants from '../constants.json';
 
-const movieReducers = (state = [], action) => {
-  switch (action.type) {
-    case constants.FETCH_MOVIES_STARTED: {
-      return state;
-    }
-    case constants.FETCH_MOVIES_ERROR: {
-      throw new Error(action.payload.results);
-    }
-    case constants.FETCH_MOVIES_COMPLETED: {
-      return action.payload.results;
-    }
-    case constants.SORT_BY_RATE: {
-      const sortedState = [...state].sort((cur, next) => cur.vote_average - next.vote_average).reverse();
-      return [...sortedState];
-    }
-    case constants.SORT_BY_RELEASE: {
-      const sortedState = [...state].sort((cur, next) => Date.parse(cur.release_date) - Date.parse(next.release_date)).reverse();
-      return [...sortedState];
-    }
-    case constants.NO_SORT: {
-      return [...state];
-    }
-    default: return state;
-  }
+const sortActions = {
+  [constants.SORT_BY_RATE]: (st) => {
+    const sortedState = [...st].sort((cur, next) => next.vote_average - cur.vote_average);
+    return [...sortedState];
+  },
+  [constants.SORT_BY_RELEASE]: (st) => {
+    const sortedState = [...st].sort((cur, next) => Date.parse(next.release_date) - Date.parse(cur.release_date));
+    return [...sortedState];
+  },
+  [constants.NO_SORT]: st => [...st],
 };
+
+const actions = {
+  [constants.FETCH_MOVIES_STARTED]: state => state,
+  [constants.FETCH_MOVIES_ERROR]: (state, action) => { throw Error(action.payload.results); },
+  [constants.FETCH_MOVIES_COMPLETED]: (state, action) => action.payload.results,
+  [constants.SORT]: (state, action) => (sortActions[action.payload] ? sortActions[action.payload](state) : state),
+};
+
+const movieReducers = (state = [], action) => (actions[action.type] ? actions[action.type](state, action) : state);
 
 export default movieReducers;

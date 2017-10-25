@@ -8,6 +8,13 @@
     "airbnb"
   ],
   "rules": {
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }],
+    "class-methods-use-this": ["error", { "exceptMethods": ["handleSort"] }],
+    "react/forbid-prop-types": [0],
+    "react/require-default-props": [0],
     "linebreak-style": ["error", "unix"],
     "no-console": "off",
     "max-len": ["error", 220]

@@ -12,16 +12,22 @@
 
 
     li {
+      font-family: 'Open Sans', sans-serif;
       display: inline-block;
       margin-right: 20px;
 
-      a {
+      .button {
+        background-color: transparent;
+        outline: none;
+        font-weight: bold;
         text-decoration: none;
         color: #3c3d41;
+        border: none;
+        cursor: pointer;
       }
 
       &.active {
-        a {
+        .button {
           color: #f35162;
         }
       }
