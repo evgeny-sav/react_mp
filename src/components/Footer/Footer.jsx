@@ -3,7 +3,7 @@ import styles from './Footer.scss';
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <div className={styles.container}>netflixroulette</div>
+    <div className={styles.container}>movieroulette</div>
   </footer>
 );
 

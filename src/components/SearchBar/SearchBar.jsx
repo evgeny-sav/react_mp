@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import SearchBy from '../SearchBy/SearchBy';
 import styles from './SearchBar.scss';
@@ -35,9 +34,5 @@ class SearchBar extends Component {
     );
   }
 }
-
-SearchBar.propTypes = {
-  history: PropTypes.object.isRequired, // eslint-disable-line
-};
 
 export default SearchBar;

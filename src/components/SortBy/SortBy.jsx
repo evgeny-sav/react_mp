@@ -1,37 +1,39 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import styles from './SortBy.scss';
+import * as constants from '../../constants.json';
+import sort from '../../actions/sort';
 
 const cx = classNames.bind(styles);
 
 class SortBy extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sortBy: 'rate',
-    };
-  }
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    sortBy: PropTypes.string,
+  };
 
-  handelSort(e, val = 'rate') {
+  handleSort(e) {
     e.preventDefault();
-    this.setState({ sortBy: val });
+    return cb => cb;
   }
 
   render() {
-    const { sortBy } = this.state;
+    const { dispatch, sortBy } = this.props;
     return (
       <div className={styles.filters}>
         <p className={styles.title}>Sort by: </p>
         <ul className={styles.filtersList}>
-          <li className={cx({ active: sortBy === 'release' })}>
-            <a href="" onClick={e => this.handelSort(e, 'release')}>
+          <li className={cx({ active: sortBy === constants.SORT_BY_RELEASE })}>
+            <button className={styles.button} onClick={e => this.handleSort(e)(dispatch(sort(constants.SORT_BY_RELEASE)))}>
               release date
-            </a>
+            </button>
           </li>
-          <li className={cx({ active: sortBy === 'rate' })}>
-            <a href="" onClick={e => this.handelSort(e, 'rate')}>
+          <li className={cx({ active: sortBy === constants.SORT_BY_RATE })}>
+            <button className={styles.button} onClick={e => this.handleSort(e)(dispatch(sort(constants.SORT_BY_RATE)))}>
               rating
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -39,4 +41,9 @@ class SortBy extends Component {
   }
 }
 
-export default SortBy;
+const mapStateToProps = ({ movies, sortBy }) => ({
+  movies,
+  sortBy,
+});
+
+export default connect(mapStateToProps)(SortBy);

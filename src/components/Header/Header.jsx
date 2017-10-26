@@ -5,7 +5,7 @@ import styles from './Header.scss';
 const Header = props => (
   <div className={styles.header}>
     <div className={styles.container}>
-      <div className={styles.title}>netflixroulette</div>
+      <div className={styles.title}>movieroulette</div>
       { props.children }
     </div>
   </div>

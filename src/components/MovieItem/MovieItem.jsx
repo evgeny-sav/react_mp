@@ -10,14 +10,13 @@ const MovieItem = ({ movieObj }) => (
   <div className={styles.movieItem}>
     <Link to={`/film/${movieObj.id}`}>
       <div className={styles.movieImage}>
-        <img src={movieObj.image_url} alt="" />
+        <img src={(movieObj.poster_path) ? `https://image.tmdb.org/t/p/w1000${movieObj.poster_path}` : 'http://via.placeholder.com/400x500.png/fff/ccc?text=No image'} alt={movieObj.title} />
       </div>
     </Link>
     <div className={styles.movieInfo}>
       <p className={cx('title', 'clearfix')}>
-        {movieObj.title} <span className={styles.year}>2017</span>
+        {movieObj.title} <span className={styles.year}>{movieObj.release_date.slice(0, 4)}</span>
       </p>
-      <p className={styles.genre}>Fiction</p>
     </div>
   </div>
 );
@@ -26,8 +25,8 @@ MovieItem.propTypes = {
   movieObj: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image_url: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
   }).isRequired,
 };
+
 export default MovieItem;
