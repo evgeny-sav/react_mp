@@ -22,7 +22,7 @@ const InfoBar = (props) => {
 
 InfoBar.propTypes = {
   children: PropTypes.element.isRequired,
-  movies: PropTypes.array.isRequired, // eslint-disable-line
+  movies: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = ({ movies }) => ({

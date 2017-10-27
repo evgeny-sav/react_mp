@@ -1,5 +1,5 @@
 import API from '../api';
-import * as constants from '../constants.json';
+import constants from '../constants';
 
 const fetchMovieStarted = () => ({
   type: constants.FETCH_MOVIE_BY_ID_STARTED,

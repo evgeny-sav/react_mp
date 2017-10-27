@@ -1,4 +1,4 @@
-import * as constants from '../constants.json';
+import constants from '../constants';
 
 const initialState = {
   genres: [],
