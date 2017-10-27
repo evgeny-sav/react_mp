@@ -26,12 +26,12 @@ class SortBy extends Component {
         <p className={styles.title}>Sort by: </p>
         <ul className={styles.filtersList}>
           <li className={cx({ active: sortBy === constants.SORT_BY_RELEASE })}>
-            <button className={styles.button} onClick={() => this.handleSort(constants.SORT_BY_RELEASE)()}>
+            <button className={styles.button} onClick={this.handleSort(constants.SORT_BY_RELEASE)}>
               release date
             </button>
           </li>
           <li className={cx({ active: sortBy === constants.SORT_BY_RATE })}>
-            <button className={styles.button} onClick={() => this.handleSort(constants.SORT_BY_RATE)()}>
+            <button className={styles.button} onClick={this.handleSort(constants.SORT_BY_RATE)}>
               rating
             </button>
           </li>
