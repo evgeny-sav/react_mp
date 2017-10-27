@@ -1,15 +1,15 @@
-import * as constants from '../constants.json';
+import constants from '../constants';
 
 const sortActions = {
-  [constants.SORT_BY_RATE]: (st) => {
-    const sortedState = [...st].sort((cur, next) => next.vote_average - cur.vote_average);
+  [constants.SORT_BY_RATE]: (state) => {
+    const sortedState = [...state].sort((cur, next) => next.vote_average - cur.vote_average);
     return [...sortedState];
   },
-  [constants.SORT_BY_RELEASE]: (st) => {
-    const sortedState = [...st].sort((cur, next) => Date.parse(next.release_date) - Date.parse(cur.release_date));
+  [constants.SORT_BY_RELEASE]: (state) => {
+    const sortedState = [...state].sort((cur, next) => Date.parse(next.release_date) - Date.parse(cur.release_date));
     return [...sortedState];
   },
-  [constants.NO_SORT]: st => [...st],
+  [constants.NO_SORT]: state => [...state],
 };
 
 const actions = {

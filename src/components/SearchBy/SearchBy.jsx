@@ -6,8 +6,7 @@ import styles from './SearchBy.scss';
 const cx = classNames.bind(styles);
 
 const SearchBy = ({ onHandleSearchBy, activeFilter }) => {
-  const handelSearchBy = (e, val) => {
-    e.preventDefault();
+  const handelSearchBy = (val) => {
     onHandleSearchBy(val);
   };
 
@@ -16,10 +15,10 @@ const SearchBy = ({ onHandleSearchBy, activeFilter }) => {
       <p className={styles.title}>Search by</p>
       <ul className={styles.list}>
         <li className={cx('item', { active: activeFilter === 'director' })}>
-          <button onClick={e => handelSearchBy(e, 'director')}>Director</button>
+          <button onClick={() => handelSearchBy('director')}>Director</button>
         </li>
         <li className={cx('item', { active: activeFilter === 'title' })}>
-          <button onClick={e => handelSearchBy(e, 'title')}>Title</button>
+          <button onClick={() => handelSearchBy('title')}>Title</button>
         </li>
       </ul>
     </div>

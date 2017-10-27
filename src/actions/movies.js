@@ -1,5 +1,6 @@
 import API from '../api';
-import * as constants from '../constants.json';
+import sort from './sort';
+import constants from '../constants';
 
 const fetchMoviesStarted = () => ({
   type: constants.FETCH_MOVIES_STARTED,
@@ -17,6 +18,7 @@ const fetchMoviesCompleted = payload => ({
 
 const fetchMovies = (searchBy, searchFor) => async (dispatch) => {
   dispatch(fetchMoviesStarted());
+  dispatch(sort(constants.NO_SORT));
   try {
     const payload = await API.getMovies(searchBy, searchFor);
     dispatch(fetchMoviesCompleted(payload)); // TODO: infinite loading
