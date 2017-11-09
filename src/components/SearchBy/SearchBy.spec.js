@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import SearchBy from '../SearchBy/SearchBy';
 
 
-describe('< App />', () => {
+describe('< SearchBy />', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<SearchBy onHandleSearchBy={() => ({})} activeFilter="director" />);
   });
 
   it('should be rendered', () => {

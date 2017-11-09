@@ -4,11 +4,13 @@ import Header from '../Header/Header';
 
 
 describe('< Header />', () => {
-  const wrapper = shallow(<Header />); // TODO: props.children
+  let wrapper;
 
-  // TODO: test router
+  beforeEach(() => {
+    wrapper = shallow(<Header />); // TODO: Failed prop type: The prop `children` is marked as required in `Header`, but its value is `undefined`.
+  });
 
-  // Header
+
   it('should be rendered', () => {
     expect(wrapper).toMatchSnapshot();
   });
