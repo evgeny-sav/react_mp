@@ -9,6 +9,7 @@
     "airbnb"
   ],
   "rules": {
+    "import/no-named-as-default": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],

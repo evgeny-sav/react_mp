@@ -1,16 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from '../Header/Header';
-import SearchBar from '../SearchBar/SearchBar';
+import { InfoBar } from '../InfoBar/InfoBar';
+import SortBy from '../SortBy/SortBy';
 
-
-describe('< Header />', () => {
+describe('< InfoBar />', () => {
   let wrapper;
-
   beforeEach(() => {
-    wrapper = shallow(<Header><SearchBar /></Header>);
+    wrapper = shallow(<InfoBar movies={[]}><SortBy /></InfoBar>);
   });
-
 
   it('should be rendered', () => {
     expect(wrapper).toMatchSnapshot();

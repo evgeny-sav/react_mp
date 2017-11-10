@@ -9,7 +9,7 @@ import styles from './MovieList.scss';
 
 const cx = classNames.bind(styles);
 
-class MovieList extends Component {
+export class MovieList extends Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
     movies: PropTypes.array.isRequired,
