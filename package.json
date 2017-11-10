@@ -20,8 +20,8 @@
       "\\.scss$": "identity-obj-proxy"
     },
     "setupFiles": [
-      "<rootDir>/shim.js",
-      "<rootDir>/enzyme.conf.js"
+      "<rootDir>/testData/shim.js",
+      "<rootDir>/testData/tests.setup.js"
     ]
   },
   "lint-staged": {
