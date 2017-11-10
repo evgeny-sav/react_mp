@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { MovieDetails } from '../MovieDetails/MovieDetails';
-import * as movies from '../../../__mocks__/movies.mock.json';
+import * as movies from '../../../testData/movies.mock.json';
 
 
 describe('< MovieDetails />', () => {
