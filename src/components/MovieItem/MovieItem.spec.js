@@ -7,7 +7,7 @@ describe('< MovieItem />', () => {
   const props = {
     movieObj: {
       id: 1,
-      title: 'title',
+      title: 'Batman',
       poster_path: 'http://localhost:8000',
       release_date: '2017-11-9',
     },
@@ -19,5 +19,9 @@ describe('< MovieItem />', () => {
 
   it('should be rendered', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render correct < MovieItem /> title', () => {
+    expect(wrapper.find('.title').text()).toEqual(`${props.movieObj.title} ${props.movieObj.release_date.slice(0, 4)}`);
   });
 });

@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { MovieList } from '../MovieList/MovieList';
-import * as movies from '../../../testData/movies.mock.json';
+import MovieItem from '../MovieItem/MovieItem';
+import movies from '../../../testData/movies.mock.json';
 
 
 describe('< MovieList />', () => {
@@ -25,6 +26,19 @@ describe('< MovieList />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render "No movies found" if no movies in this.props.movies', () => {
+    wrapper.setProps({
+      movies: [],
+    });
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.noMovies .text').text()).toEqual('No movies found');
+  });
+
+  it('should render movies from this.props.movies', () => {
+    expect(wrapper.find(MovieItem)).toHaveLength(20);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should call getFilteredData and dispatch', () => {
     const dispatchSpy = sinon.spy();
     wrapper.setProps({
@@ -32,9 +46,8 @@ describe('< MovieList />', () => {
     });
 
     wrapper.instance().getFilteredData();
-    console.log(dispatchSpy.args);
+
     expect(dispatchSpy.called).toBeTruthy();
-    // expect(dispatchSpy.calledWith(/*function fetchMovies(searchBy, searchFor)*/)).toBeTruthy();
   });
 
   describe('getFilteredData', () => {
@@ -77,16 +90,30 @@ describe('< MovieList />', () => {
     });
 
     it('should call getFilteredDataSpy when location have been changed to /search', () => {
-      URLSearchParamsStub.withArgs('searchFor').returns('Batman');
+      URLSearchParamsStub.withArgs('searchFor').returns('Scorsese');
       URLSearchParamsStub.withArgs('searchBy').returns('director');
       wrapper.setProps({
         location: {
           key: 'n9zr5m',
           pathname: '/search',
-          search: '?searchFor=Batman&searchBy=director',
+          search: '?searchFor=Scorsese&searchBy=director',
         },
       });
-      expect(getFilteredDataSpy.calledWith('director', 'Batman')).toBeTruthy();
+      expect(getFilteredDataSpy.calledWith('director', 'Scorsese')).toBeTruthy();
+
+      getFilteredDataSpy.reset();
+
+      URLSearchParamsStub.withArgs('searchFor').returns('Superman');
+      URLSearchParamsStub.withArgs('searchBy').returns('title');
+
+      wrapper.setProps({
+        location: {
+          key: 'n9zr5m',
+          pathname: '/search',
+          search: '?searchFor=Superman&searchBy=title',
+        },
+      });
+      expect(getFilteredDataSpy.calledWith('title', 'Superman')).toBeTruthy();
     });
   });
 });
