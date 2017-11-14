@@ -14,7 +14,7 @@ const sortActions = {
 
 const actions = {
   [constants.FETCH_MOVIES_STARTED]: state => state,
-  [constants.FETCH_MOVIES_ERROR]: (state, action) => { throw Error(action.payload.results); },
+  [constants.FETCH_MOVIES_ERROR]: (state, action) => { throw Error(action.payload.message); },
   [constants.FETCH_MOVIES_COMPLETED]: (state, action) => action.payload.results,
   [constants.SORT]: (state, action) => (sortActions[action.payload] ? sortActions[action.payload](state) : state),
 };

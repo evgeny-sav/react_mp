@@ -1,6 +1,6 @@
 import constants from '../constants';
 
-const sort = payload => ({
+export const sort = payload => ({
   type: constants.SORT,
   payload,
 });
