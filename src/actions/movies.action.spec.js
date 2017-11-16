@@ -17,9 +17,9 @@ describe('[ Actions ] Movies', () => {
     });
   });
   it('[fetchMoviesCompleted] should return correct object for the action', () => {
-    expect(fetchMoviesCompleted([...movies])).toEqual({
+    expect(fetchMoviesCompleted(movies)).toEqual({
       type: constants.FETCH_MOVIES_COMPLETED,
-      payload: [...movies],
+      payload: movies,
     });
   });
 

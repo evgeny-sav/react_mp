@@ -3,15 +3,12 @@ import constants from '../constants';
 import movies from '../../testData/movies.mock.json';
 
 describe('[ Reducers ] Single Movie', () => {
-  let state;
-  beforeEach(() => {
-    state = {
-      genres: [],
-      overview: '',
-      release_date: '',
-      runtime: 0,
-    };
-  });
+  const state = {
+    genres: [],
+    overview: '',
+    release_date: '',
+    runtime: 0,
+  };
 
   it('[INITIAL] should return same state', () => {
     const action = { type: '@@INIT' };

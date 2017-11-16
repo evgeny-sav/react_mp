@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchBy from '../SearchBy/SearchBy';
 
@@ -14,28 +13,11 @@ describe('< SearchBar />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should have correct state', () => {
-    expect(wrapper.state().searchBy).toEqual('title');
-    wrapper.setState({ searchBy: 'director' });
-    expect(wrapper.state().searchBy).toEqual('director');
-  });
+  it('should change state properly', () => {
+    wrapper.find('#searchBar').simulate('change', { target: { value: 'Hello World' } });
+    expect(wrapper.state().searchFor).toBe('Hello World');
 
-  it('should have correct input', () => {
-    expect(wrapper.find('input')).toHaveLength(1);
-    const inputVal = wrapper.find('input').render()['0'].attribs.value;
-    expect(inputVal).toEqual(wrapper.state().searchFor);
-
-    wrapper.setState({ searchFor: 'Superman' });
-
-    const newInputVal = wrapper.find('input').render()['0'].attribs.value;
-    expect(newInputVal).toEqual(wrapper.state().searchFor);
-  });
-
-  it('should have Link', () => {
-    expect(wrapper.find(Link)).toHaveLength(1);
-  });
-
-  it('should have SearchBy', () => {
-    expect(wrapper.find(SearchBy)).toHaveLength(1);
+    wrapper.find(SearchBy).prop('onHandleSearchBy')('director');
+    expect(wrapper.state().searchBy).toBe('director');
   });
 });

@@ -3,13 +3,10 @@ import constants from '../constants';
 import movies from '../../testData/movies.mock.json';
 
 describe('[ Reducers ] Movies', () => {
-  let state;
-  beforeEach(() => {
-    state = {
-      movies: [],
-      sortBy: 'NO_SORT',
-    };
-  });
+  let state = {
+    movies: [],
+    sortBy: 'NO_SORT',
+  };
 
   it('[INITIAL] should return same state', () => {
     const action = { type: '@@INIT' };
@@ -40,9 +37,7 @@ describe('[ Reducers ] Movies', () => {
   });
 
   describe('[SORT]', () => {
-    beforeEach(() => {
-      state = movies;
-    });
+    state = movies;
 
     it('[SORT_BY_RATE] should return correct state for the action', () => {
       const action = { type: constants.SORT, payload: constants.SORT_BY_RATE };
