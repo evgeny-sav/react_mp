@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import fetchMovie from '../../actions/singleMovie';
 import styles from './MovieDetails.scss';
 
-class MovieDetails extends Component {
+export class MovieDetails extends Component {
   static propTypes = {
     movie: PropTypes.object,
     match: PropTypes.object.isRequired,

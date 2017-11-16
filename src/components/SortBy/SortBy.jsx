@@ -8,7 +8,7 @@ import sort from '../../actions/sort';
 
 const cx = classNames.bind(styles);
 
-class SortBy extends Component {
+export class SortBy extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     sortBy: PropTypes.string,

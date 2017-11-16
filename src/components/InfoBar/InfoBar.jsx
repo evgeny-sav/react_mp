@@ -6,7 +6,7 @@ import styles from './InfoBar.scss';
 
 const cx = classNames.bind(styles);
 
-const InfoBar = (props) => {
+export const InfoBar = (props) => {
   const { movies, children } = props;
   return (
     <div className={styles.infobar}>
