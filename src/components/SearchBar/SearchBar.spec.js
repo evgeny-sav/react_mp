@@ -13,10 +13,12 @@ describe('< SearchBar />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should change state properly', () => {
+  it('should change state.searchFor properly', () => {
     wrapper.find('#searchBar').simulate('change', { target: { value: 'Hello World' } });
     expect(wrapper.state().searchFor).toBe('Hello World');
+  });
 
+  it('should change state.searchBy properly', () => {
     wrapper.find(SearchBy).prop('onHandleSearchBy')('director');
     expect(wrapper.state().searchBy).toBe('director');
   });
