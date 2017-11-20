@@ -12,6 +12,9 @@ import singleMovieReducer from './reducers/singleMovie';
 import sortReducer from './reducers/sort';
 import './index.scss';
 
+const preloadedState = window.__PRELOADED_STATE__; // eslint-disable-line
+delete window.__PRELOADED_STATE__; // eslint-disable-line
+
 const composeEnhancers = composeWithDevTools({});
 const logger = createLogger();
 const reducers = combineReducers({
@@ -20,8 +23,8 @@ const reducers = combineReducers({
   sortBy: sortReducer,
 });
 const middleware = applyMiddleware(logger, thunk);
-const store = createStore(reducers, composeEnhancers(middleware));
+const store = createStore(reducers, preloadedState, composeEnhancers(middleware));
 
 const renderRoutes = () => <Provider store={store}><Router><App /></Router></Provider>;
 
-ReactDOM.render(renderRoutes(), document.getElementById('root'));
+ReactDOM.hydrate(renderRoutes(), document.getElementById('root'));

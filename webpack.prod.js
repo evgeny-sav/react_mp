@@ -28,10 +28,6 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor',
-    //   minChunks: 2
-    // }),
     new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin('styles_[hash].css'),
     new webpack.DefinePlugin({
