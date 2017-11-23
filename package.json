@@ -9,7 +9,6 @@
     "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "build:server": "cross-env NODE_ENV=server webpack --config webpack.server.js",
-    "serve": "nodemon server.js",
     "serve:dist": "nodemon dist/server.js",
     "eslint": "eslint **/*.{jsx,js}",
     "eslint:fix": "eslint --fix **/*.{jsx,js}",

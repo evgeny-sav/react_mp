@@ -14,8 +14,8 @@ ReactJS Mentoring Programm
 
 ```$xslt
 $ npm install
-$ npm build:prod
-$ npm run serve
+$ npm build:server
+$ npm run serve:dist
 ```
 
 Go to [localhost:3000](http://localhost:3000/)
