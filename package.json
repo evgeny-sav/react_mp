@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.dev.js && nodemon server.js",
-    "test": "jest",
+    "test": "jest -u",
     "webpack-dev-server": "webpack-dev-server  --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "build:server": "cross-env NODE_ENV=server webpack --config webpack.server.js",
