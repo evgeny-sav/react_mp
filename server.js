@@ -1,6 +1,6 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
+const exphbs = require('express-handlebars');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const App = require('./src/components/App/App').default;
@@ -14,8 +14,10 @@ require('dotenv').config();
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({ defaultLayout: 'index', helpers: { json: ctx => JSON.stringify(ctx) } }));
+app.set('view engine', 'handlebars');
+
+// app.set('views', path.join(__dirname, 'views/layouts'));
 
 app.use(express.static(`${__dirname}/dist`));
 app.use(cors());
@@ -29,7 +31,7 @@ app.use((req, res) => {
   const store = createStore(reducers);
   const html = ReactDOMServer.renderToString(<Provider store={store}><StaticRouter context={{}}><App /></StaticRouter></Provider>);
   const preloadedState = store.getState();
-  res.render('index', { html, preloadedState });
+  res.render('app', { html, preloadedState });
 });
 
 process.on('uncaughtException', (err) => {
