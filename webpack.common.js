@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -8,8 +8,8 @@ module.exports = {
   },
   output: {
     path: path.resolve('dist'),
-    filename: '[name].bundle_[hash].js',
-    publicPath: '/',
+    filename: '[name].bundle.js',
+    publicPath: '/static',
   },
   resolve: {
     extensions: ['.jsx', '.js'],
@@ -35,10 +35,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      filename: 'index.html',
-      inject: 'body',
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: 'index.html',
+    //   filename: 'index.html',
+    //   inject: 'body',
+    // }),
   ],
 };

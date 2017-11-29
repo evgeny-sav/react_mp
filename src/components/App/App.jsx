@@ -22,7 +22,7 @@ const App = () => (
         <Route path="/" component={SortBy} />
       </InfoBar>
       <Main />
-      <div className={styles.push}>&nbsp;</div>
+      {/* <div className={styles.push}>&nbsp;</div> */}
     </div>
     <Footer />
   </div>

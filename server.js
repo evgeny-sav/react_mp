@@ -16,12 +16,11 @@ const app = express();
 
 app.engine('handlebars', exphbs({ defaultLayout: 'index', helpers: { json: ctx => JSON.stringify(ctx) } }));
 app.set('view engine', 'handlebars');
+app.use(cors());
 
 // app.set('views', path.join(__dirname, 'views/layouts'));
-
-app.use(express.static(`${__dirname}/dist`));
-app.use(cors());
-app.use((req, res) => {
+app.use('/static', express.static('dist'));
+app.get('*', (req, res) => {
   const reducers = combineReducers({
     movie: singleMovieReducer,
     movies: movieReducers,
