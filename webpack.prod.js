@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const common = require('./webpack.common');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -18,7 +17,7 @@ module.exports = merge(common, {
               loader: 'css-loader',
               options: {
                 modules: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[name]__[local]--[hash:base64:5]',
               },
             },
             'sass-loader',
@@ -28,7 +27,6 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    // new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
       'process.env': {

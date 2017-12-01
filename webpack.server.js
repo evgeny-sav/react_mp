@@ -1,8 +1,8 @@
 const path = require('path');
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
     server: ['babel-polyfill', './server.js'],
   },
@@ -39,10 +39,10 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'css-loader',
+            loader: 'css-loader/locals',
             options: {
               modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              localIdentName: '[name]__[local]--[hash:base64:5]',
             },
           },
           'sass-loader',
@@ -51,7 +51,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // new CleanWebpackPlugin(['dist']),
-    // new UglifyJSPlugin(),
+    new UglifyJSPlugin(),
   ],
 };
