@@ -1,18 +1,21 @@
-# react_mp
+# react_mp [![Build Status](https://travis-ci.org/evgeny-sav/react_mp.svg?branch=master)](https://travis-ci.org/evgeny-sav/react_mp)
+
 ReactJS Mentoring Programm
 
 - Homework #1. Webpack
 - Homework #2. Components
 - Homework #3. Routing
 - Homework #4. Redux
+- Homework #5. Tests
+- Homework #6. SSR
 
 
 ### Run
 
 ```$xslt
 $ npm install
-$ npm build:prod
-$ npm run serve
+$ npm build:server
+$ npm run serve:dist
 ```
 
 Go to [localhost:3000](http://localhost:3000/)

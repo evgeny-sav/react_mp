@@ -1,32 +1,30 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    app: ['babel-polyfill', './index.jsx'],
+    server: ['babel-polyfill', './server.js'],
   },
   output: {
     path: path.resolve('dist'),
-    filename: '[name].bundle.js',
-    publicPath: '/static/',
+    filename: '[name].js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.jsx', '.js'],
   },
+  target: 'node',
   module: {
     rules: [
       {
-        test: /(\.jsx)$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.ejs/,
-        use: 'raw-loader',
-      },
-      {
         test: /\.(png|jpg|gif|woff2|woff|ttf|svg|eot)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'file-loader',
@@ -36,13 +34,23 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'css-loader/locals',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+          'sass-loader',
+        ],
+      },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.ejs',
-      filename: 'index.ejs',
-      inject: 'body',
-    }),
+    new UglifyJSPlugin(),
   ],
 };

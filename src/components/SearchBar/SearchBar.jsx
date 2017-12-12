@@ -24,7 +24,7 @@ class SearchBar extends Component {
     const { searchFor, searchBy } = this.state;
     return (
       <div className={styles.searchForm}>
-        <div>
+        <div className="noop">
           <div className={styles.formTitle}>Find your movie</div>
           <input type="text" id={styles.searchBar} placeholder="Search" value={searchFor} onChange={this.handleInputChange} />
           <SearchBy onHandleSearchBy={this.handleSearchBy} activeFilter={searchBy} />
